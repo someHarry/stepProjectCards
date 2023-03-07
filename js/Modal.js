@@ -7,9 +7,5 @@ export default class Modal {
     render() {
         return this.modal;
     }
-
-    static close() {
-
-    }
 }
 
