@@ -21,7 +21,7 @@ const formVisit = new FormVisit('hello', function (){
     console.log(this)
 })
 
-let mymodal = new Modal(modalTemplate, 'ewgrg', form.render(formVisit.renderVisit()), 'modal-window');
+let mymodal = new Modal(modalTemplate, 'ewgrg', formLogin.renderInput(), 'modal-window');
 
 document.querySelector("body").append(mymodal.render());
 
