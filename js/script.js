@@ -1,5 +1,6 @@
 import {buttonLogin, buttonCreateCard, loginUrl} from "./constants.js";
 import {token, isToken, loginHandler, TEMPORARYcredentials} from "./Login.js";
+import {Requests} from "./Request.js";
 
 import  Modal  from "./Modal.js";
 import Form from "./Form.js";

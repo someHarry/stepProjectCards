@@ -84,3 +84,5 @@ class Requests {
     return data.json();
   }
 }
+
+export {Requests}
