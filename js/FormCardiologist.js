@@ -1,4 +1,6 @@
-import FormVisit from "./FormVisit";
+
+import FormVisit from "./FormVisit.js";
+
 
 export default class FormCardiologist extends FormVisit{
     constructor(submitTitle, formHandler) {
@@ -10,6 +12,9 @@ render(content) {
 renderVisit() {
     return super.renderVisit();
 }
+    renderFields(){
+        return super.renderFields();
+    }
 
 
 }
