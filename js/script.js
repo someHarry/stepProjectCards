@@ -9,6 +9,7 @@ import FormVisit from "./FormVisit.js";
 
 const modalTemplate = document.querySelector("#modal").content;
 
+
 const form = new Form("knopka", function () {
   // console.log(this)
 });
@@ -16,6 +17,7 @@ const form = new Form("knopka", function () {
 const formLogin = new FormLogin("knopka", function () {
   // console.log(this)
 });
+
 
 const formVisit = new FormVisit('hello', function (){
     console.log(this)
