@@ -3,6 +3,10 @@
 const buttonLogin = document.querySelector("#buttonLogin");
 const buttonCreateCard = document.querySelector("#buttonCreateCard");
 
-export {buttonLogin, buttonCreateCard}
+// Another constants
 
-// DOM
+const loginUrl = "https://ajax.test-danit.com/api/v2/cards/login"; // будет перенесено в файл с константами
+
+// export
+
+export {buttonLogin, buttonCreateCard, loginUrl}

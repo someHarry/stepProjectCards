@@ -1,4 +1,6 @@
-import {buttonLogin, buttonCreateCard} from "./constants.js";
+import {buttonLogin, buttonCreateCard, loginUrl} from "./constants.js";
+import {token, isToken, loginHandler, TEMPORARYcredentials} from "./Login.js";
+import {Requests} from "./Requests.js";
 
 import  Modal  from "./Modal.js";
 import Form from "./Form.js";
@@ -22,9 +24,3 @@ const formVisit = new FormVisit('hello', function (){
 let mymodal = new Modal(modalTemplate, 'ewgrg', form.render(formVisit.renderVisit()), 'modal-window');
 
 document.querySelector("body").append(mymodal.render());
-
-
-
-
-
-
