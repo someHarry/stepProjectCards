@@ -1,14 +1,4 @@
 import Form from "./Form.js";
-<<<<<<< HEAD
-export default class FormVisit extends Form{
-    constructor(submitTitle , formHandler) {
-        super(submitTitle , formHandler);
-    }
-    renderVisit(){
-
-    }
-}
-=======
 
 export default class FormVisit extends Form {
     constructor(submitTitle, formHandler) {
@@ -33,4 +23,4 @@ export default class FormVisit extends Form {
         return select;
     }
 }
->>>>>>> formVisit
+
