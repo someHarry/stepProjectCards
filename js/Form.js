@@ -1,11 +1,10 @@
 export default class Form{
-    constructor(submitTitle ,content, formHandler) {
+    constructor(submitTitle , formHandler) {
         this.submitTitle = submitTitle;
-        this.content = content;
         this.formHandler = formHandler;
 
     }
-render(){
+render(content){
       const form = document.createElement('form');
       const inputSubmit = document.createElement('input');
       inputSubmit.type = 'submit';
@@ -14,7 +13,7 @@ render(){
           event.preventDefault();
          this.formHandler();
       }.bind(this))
-      form.append(this.content, inputSubmit);
+      form.append(content, inputSubmit);
       return form;
 }
 }
