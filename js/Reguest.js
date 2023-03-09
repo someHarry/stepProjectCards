@@ -45,13 +45,11 @@ class Requests {
       body: JSON.stringify(
         data // вся инфа которую мы получаем в качестве ответа
       ),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        return data;
-      })
-      .catch((error) => console.error(error));
+    });
+    then((response) => {
+      console.log(response);
+      return response;
+    }).catch((error) => console.error(error));
   }
 
   static PUT(URL, editData) {
@@ -63,10 +61,9 @@ class Requests {
       },
       body: JSON.stringify(editData),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        return data;
+      .then((response) => {
+        console.log(response);
+        return response;
       })
       .catch((error) => console.error(error));
   }
@@ -81,5 +78,9 @@ class Requests {
       console.log(response);
       return response.ok;
     });
+  }
+
+  static jsonHandler(data) {
+    return data.json();
   }
 }
