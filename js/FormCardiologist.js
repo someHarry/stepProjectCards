@@ -10,6 +10,9 @@ render(content) {
 renderVisit() {
     return super.renderVisit();
 }
+    renderFields(){
+        return super.renderFields();
+    }
 
 
 }
