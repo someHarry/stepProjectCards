@@ -1,4 +1,4 @@
-import {buttonLogin, buttonCreateCard} from "./constants.js";
+import {buttonLogin, buttonCreateCard, loginUrl} from "./constants.js";
 
 import  Modal  from "./Modal.js";
 import Form from "./Form.js";
@@ -13,8 +13,6 @@ let mymodal = new Modal(modalTemplate, 'ewgrg',form.render(), 'modal-window');
 
 document.querySelector("body").append(mymodal.render());
 console.log(mymodal.render());
-
-
 
 
 
