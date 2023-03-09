@@ -12,7 +12,7 @@ function isToken (){
 const TEMPORARYcredentials = {email:"your@email.com",password:"password"};
 
 function loginHandler(credentials){
-    Requests.POST(loginUrl, credentials)    // Типа обработка события click на кнопке отправки
+    Requests.LOGIN_REQUEST(loginUrl, credentials)    // Типа обработка события click на кнопке отправки
         .then(tk => {
             token = tk;
             localStorage.setItem('token', token);
