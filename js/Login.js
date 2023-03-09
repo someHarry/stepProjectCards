@@ -1,3 +1,5 @@
+import {loginUrl} from "./constants.js";
+
 let token = localStorage.getItem('token'); // Получаем token из local storage
 
 function isToken (){
@@ -12,8 +14,7 @@ function isToken (){
 const TEMPORARYcredentials = {email:"your@email.com",password:"password"};
 
 function loginHandler(credentials){
-    Requests.LOGIN_REQUEST(loginUrl, credentials)    // Типа обработка события click на кнопке отправки
-        .then(tk => {
+    Requests.LOGIN_REQUEST(loginUrl, credentials).then(tk => {
             token = tk;
             localStorage.setItem('token', token);
         })
@@ -22,3 +23,4 @@ function loginHandler(credentials){
 
 
 export {token, isToken, loginHandler, TEMPORARYcredentials}
+import {Requests} from "./Requests.js";

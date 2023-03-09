@@ -5,6 +5,8 @@
 // - put (для удаления карточки)
 // - get (для получения всех карточек)
 
+import {loginHandler} from "./Login.js";
+
 const URL = "https://ajax.test-danit.com/api/v2/cards/"; // link / запрос на получение всех карточек
 let token = "5db4c838-6625-4594-b0ea-4feb25002fe6";
 let data = {email: "your@email.com", password: "password"};
@@ -78,8 +80,8 @@ class Requests {
         });
     }
 
-    static LOGIN_REQUEST(URL, credentials){
-        fetch(URL, {
+    static LOGIN_REQUEST(URL, credentials) {
+        return fetch(URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -87,7 +89,7 @@ class Requests {
             body: JSON.stringify(credentials),
         })
             .then((response) => {
-                return response;
+                return response.text();
             })
             .catch((error) => console.error(error));
     }
