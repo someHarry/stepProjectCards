@@ -57,4 +57,3 @@ export default class FormVisit extends Form {
         inputName.placeholder = "ФИО";
     }
 }
-

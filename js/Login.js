@@ -1,9 +1,12 @@
+import {buttonCreateCard, buttonLogin, loginUrl} from "./constants.js";
+import {hide, show} from "./Utilities.js"
+
 let token = localStorage.getItem('token'); // Получаем token из local storage
 
 function isToken (){
     if (!!token) {       // Проверяем, получили ли мы токен, если токен не null, прячем форму авторизации и показываем кнопку "Создать карточку"
-        // hide(loginButton);      // Надо будет создать функцию, которая навешивает класс hidden
-        // show(createCardButton); // ...и убирает его
+        hide(buttonLogin);      // Надо будет создать функцию, которая навешивает класс hidden
+        show(buttonCreateCard); // ...и убирает его
     }
 }
 
@@ -12,8 +15,7 @@ function isToken (){
 const TEMPORARYcredentials = {email:"your@email.com",password:"password"};
 
 function loginHandler(credentials){
-    Requests.POST(loginUrl, credentials)    // Типа обработка события click на кнопке отправки
-        .then(tk => {
+    Requests.LOGIN_REQUEST(loginUrl, credentials).then(tk => {
             token = tk;
             localStorage.setItem('token', token);
         })
@@ -22,3 +24,4 @@ function loginHandler(credentials){
 
 
 export {token, isToken, loginHandler, TEMPORARYcredentials}
+import {Requests} from "./Requests.js";
