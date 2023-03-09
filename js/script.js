@@ -2,7 +2,7 @@ import {buttonLogin, buttonCreateCard, loginUrl} from "./constants.js";
 import {token, isToken, loginHandler, TEMPORARYcredentials} from "./Login.js";
 import {Requests} from "./Requests.js";
 
-import  Modal  from "./Modal.js";
+import Modal  from "./Modal.js";
 import Form from "./Form.js";
 import FormLogin from "./FormLogin.js";
 import FormVisit from "./FormVisit.js";
