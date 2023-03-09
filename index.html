@@ -9,9 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
-        .modal-open {
-            display: block !important;
-        }
         .hidden{
             display: none;
         }
@@ -30,7 +27,8 @@
                 Medical Center
             </a>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button id="buttonLogin" class="btn btn-info text-light" type="button">Вход</button>
+
+                <button id="buttonLogin" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#modal-window" type="button">Вход</button>
                 <button id="buttonCreateCard" class="btn btn-info text-light hidden" type="button">Создать визит</button>
             </div>
         </div>
@@ -63,7 +61,7 @@
             </div>
         </form>
     </section>
-    <div class="p-3 mx-5 mb-2 bg-info rounded-4">
+    <div class="p-3 mx-5 mb-2 bg-info rounded-4" id="cards-container">
         <section class="images pt-3" id="placeholder">
             <div class="images-container mx-auto" style="width: 25rem;">
                 <img src="https://www.englishdom.com/dynamicus/blog-post/000/002/383/1637751298_content_700x455.jpg"
@@ -74,7 +72,7 @@
     </div>
 </main>
 <template id="modal">
-    <div class="modal modal-open" tabindex="-1" style="background: rgba(64,69,73,0.59)">
+    <div class="modal modal-open" id="modal-window" tabindex="-1" style="background: rgba(64,69,73,0.59)">
         <div class="modal-dialog" style="top:30vh">
             <div class="modal-content">
                 <div class="modal-header">
@@ -86,42 +84,41 @@
                 <div class="modal-body">
                     <!--                form-->
                 </div>
-                <div class="modal-footer">
-<!--                   button-->
-                </div>
             </div>
         </div>
     </div>
 </template>
-<template id="form-login">
-    <label for="inputLogin2" class="visually-hidden">Login</label>
-    <input type="text" class="form-control" id="inputLogin2" placeholder="Login">
+<!--<template id="form-login">-->
+<!--    <label for="inputLogin2" class="visually-hidden">Login</label>-->
+<!--    <input type="text" class="form-control" id="inputLogin2" placeholder="Login">-->
 
-    <label for="inputPassword2" class="visually-hidden">Password</label>
-    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+<!--    <label for="inputPassword2" class="visually-hidden">Password</label>-->
+<!--    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">-->
 
-<button type="button" class="btn btn-secondary btn-login--close" data-bs-dismiss="modal">Close</button>
-<button type="button" class="btn btn-info text-light btn-login--send">Login</button>
-</template>
-<template id="form-delete">
+<!--<button type="button" class="btn btn-secondary btn-login&#45;&#45;close" data-bs-dismiss="modal">Close</button>-->
+<!--<button type="button" class="btn btn-info text-light btn-login&#45;&#45;send">Login</button>-->
+<!--</template>-->
+<!--<template id="form-delete">-->
 
-</template>
-<template id="form-edit">
+<!--</template>-->
+<!--<template id="form-edit">-->
 
-</template>
-<template id="form-createCard">
-<select class="form-select form-select-m" aria-label=".form-select-sm example">
-    <option selected>Выбор врача</option>
-    <option value="1">Кардиолог</option>
-    <option value="2">Стоматолог</option>
-    <option value="3">Терапевт</option>
-</select>
-<button type="button" class="btn btn-secondary btn-createCard--close" data-bs-dismiss="modal">Close</button>
-<button type="button" class="btn btn-info text-light btn-createCard--send">Save changes</button>
-</template>
+<!--</template>-->
+<!--<template id="form-createCard">-->
+<!--<select class="form-select form-select-m" aria-label=".form-select-sm example">-->
+<!--    <option selected>Выбор врача</option>-->
+<!--    <option value="1">Кардиолог</option>-->
+<!--    <option value="2">Стоматолог</option>-->
+<!--    <option value="3">Терапевт</option>-->
+<!--</select>-->
+<!--<button type="button" class="btn btn-secondary btn-createCard&#45;&#45;close" data-bs-dismiss="modal">Close</button>-->
+<!--<button type="button" class="btn btn-info text-light btn-createCard&#45;&#45;send">Save changes</button>-->
+<!--</template>-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+
 <script src="./js/script.js" type="module"></script>
+
 </body>
 </html>
