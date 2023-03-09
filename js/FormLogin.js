@@ -3,6 +3,9 @@ export default class FormLogin extends Form{
     constructor(submitTitle , formHandler) {
         super(submitTitle , formHandler);
     }
+    render(content) {
+        return super.render(content);
+    }
     renderInput(){
         const fragment = document.createDocumentFragment();
 const inputLogin = document.createElement('input');
