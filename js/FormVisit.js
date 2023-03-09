@@ -1,4 +1,5 @@
 import Form from "./Form.js";
+
 export default class FormVisit extends Form {
     constructor(submitTitle, formHandler) {
         super(submitTitle, formHandler);
@@ -32,27 +33,27 @@ export default class FormVisit extends Form {
         // выпадающее поле - срочность (обычная, приоритетная, неотложная)
         // ФИО
         const labelVisit = document.createElement('label');
-        labelVisit.htmlFor = "label-visit";
+        labelVisit.htmlFor = "visit";
         labelVisit.textContent = "Цель визита";
         const inputVisit = document.createElement('input');
-        inputVisit.id = "label-visit";
+        inputVisit.id = "visit";
         inputVisit.type = "text";
         inputVisit.placeholder = "Цель визита";
         const labelDescription = document.createElement('label');
-        labelDescription.htmlFor = "description-visit";
+        labelDescription.htmlFor = "description";
         labelDescription.textContent = "Краткое описание визита";
         const inputDescription = document.createElement('input');
-        inputDescription.id = "description-visit";
+        inputDescription.id = "description";
         inputDescription.type = "text";
         inputDescription.placeholder = "Описание визита";
 
 
         const labelName = document.createElement('label');
-        labelName.htmlFor = "description-visit";
-        labelName.textContent = "Краткое описание визита";
+        labelName.htmlFor = "full-name";
+        labelName.textContent = "Фамилия Имя Отчество";
         const inputName = document.createElement('input');
-        inputName.id = "description-visit";
+        inputName.id = "full-name";
         inputName.type = "text";
-        inputName.placeholder = "Описание визита";
+        inputName.placeholder = "ФИО";
     }
 }
