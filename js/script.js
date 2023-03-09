@@ -1,5 +1,5 @@
 import {buttonLogin, buttonCreateCard, loginUrl} from "./constants.js";
-import {token, isToken, loginHandler, TEMPORARYcredentials} from "./Login.js";
+import {token, isToken, loginHandler} from "./Login.js";
 import {Requests} from "./Requests.js";
 
 import Modal  from "./Modal.js";
@@ -14,8 +14,8 @@ const form = new Form("knopka", function () {
   // console.log(this)
 });
 
-const formLogin = new FormLogin("knopka", function () {
-  // console.log(this)
+const formLogin = new FormLogin("knopka", function (event) {
+    loginHandler(event);
 });
 
 
