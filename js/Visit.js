@@ -2,8 +2,6 @@
 
 //  контейнер для карточки
 import { visitCard } from "./constants.js";
-console.log(visitCard);
-// import {hide, show} from "./Utilities.js"
 
 const root = document.querySelector("#root");
 const visitCard = document.createElement("div");
@@ -30,15 +28,15 @@ class Visit {
     doctor.textContent = this.doctor;
 
     const purpose = document.createElement("p");
-    purpose.className = "visitCard__container--purpose";
+    purpose.className = "visitCard__container--purpose hidden";
     purpose.textContent = this.purpose;
 
     const description = document.createElement("p");
-    description.className = "visitCard__container--description";
+    description.className = "visitCard__container--description hidden";
     description.textContent = this.description;
 
     const priority = document.createElement("p");
-    priority.className = "visitCard__container--priority";
+    priority.className = "visitCard__container--priority hidden";
     priority.textContent = this.priority;
 
     // создание кнопок
@@ -60,11 +58,15 @@ class Visit {
     visitCard.append(editBtn);
     visitCard.append(deleteIcon);
 
+    // создаю с классом hidden,
+    visitCard.append(purpose);
+    visitCard.append(description);
+    visitCard.append(priority);
     // клик по кнопке showMoreBtn
     showMoreBtn.addEventListener("click", () => {
-      visitCard.append(purpose);
-      visitCard.append(description);
-      visitCard.append(priority);
+      purpose.classList.toggle("hidden");
+      description.classList.toggle("hidden");
+      priority.classList.toggle("hidden");
     });
 
     // клик по кнопке showMoreBtn
@@ -73,7 +75,12 @@ class Visit {
       // вызов формы для редактирования
     });
 
-    deleteIcon.addEventListener("click", () => {});
+    deleteIcon.addEventListener("click", (event) => {
+      if (event.target.closest(".visitCard__container--deleteIcon")) {
+        // будет вызываться отдельная модалка для подтверждения удаления карточки
+        event.target.closest(".visitCard__container").style.display = "none";
+      }
+    });
 
     return visitCard;
   }
@@ -87,4 +94,4 @@ class Visit {
 //   "high"
 // );
 // test.render();
-// // export { test };
+// // // export { test };
