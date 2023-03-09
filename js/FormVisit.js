@@ -4,6 +4,9 @@ export default class FormVisit extends Form {
     constructor(submitTitle, formHandler) {
         super(submitTitle, formHandler);
     }
+    render(content) {
+        return super.render(content);
+    }
     renderVisit() {
         const select = document.createElement('select');
         select.className = "form-select form-select-m";
