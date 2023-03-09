@@ -15,7 +15,7 @@ const formLogin = new FormLogin('knopka', function (){
 })
 
 
-let mymodal = new Modal(modalTemplate, 'ewgrg', formLogin.renderInput(), 'modal-window');
+let mymodal = new Modal(modalTemplate, 'ewgrg', form.render(formLogin.renderInput()), 'modal-window');
 
 document.querySelector("body").append(mymodal.render());
 
