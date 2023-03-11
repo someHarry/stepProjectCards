@@ -4,10 +4,8 @@ export default class FormVisit extends Form {
     constructor(submitTitle, formHandler) {
         super(submitTitle, formHandler);
     }
-    render(content) {
-        return super.render(content);
-    }
     renderVisit() {
+        // super.render();
         const select = document.createElement('select');
         select.className = "form-select form-select-m";
         const optionSelected = document.createElement('option');
@@ -22,10 +20,11 @@ export default class FormVisit extends Form {
         const optionTherapist = document.createElement('option');
         optionTherapist.value = '3';
         optionTherapist.textContent = 'Дантист';
-        select.append(optionSelected,optionCardiologist,optionDentist,optionTherapist);
+        select.append(optionSelected, optionCardiologist, optionDentist, optionTherapist);
         return select;
     }
-    renderFields(){
+
+    renderFields() {
         // <label for="family-name-field">Фамилия</label>
         // <input id="family-name-field" type="text" name="family-name">
         // цель визита
