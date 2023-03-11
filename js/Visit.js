@@ -1,12 +1,11 @@
 //  это класс для Карточки, которая создается по клику, появляется на доске задач.
 
 //  контейнер для карточки
-import { visitCard } from "./constants.js";
+import { visitCardContainer } from "./constants.js";
 
-const root = document.querySelector("#root");
 const visitCard = document.createElement("div");
 visitCard.className = "visitCard__container";
-root.append(visitCard);
+visitCardContainer.append(visitCard);
 
 class Visit {
   constructor(fio, doctor, purpose, description, priority) {
@@ -86,7 +85,9 @@ class Visit {
   }
 }
 
-// const test = new Visit(
+export { visitCard, Visit };
+
+// const test = new Visit(           was crated for tests, might still need it
 //   "Anastasiia M.",
 //   "Doctor Doc.",
 //   "i'm sick",
