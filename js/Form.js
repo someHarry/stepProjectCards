@@ -11,7 +11,7 @@ render(content){
       inputSubmit.className = "mt-2 btn btn-info text-light";
       form.addEventListener('submit', function (event){
           event.preventDefault();
-         this.formHandler();
+         this.formHandler(event);
       }.bind(this))
       form.append(content, inputSubmit);
       return form;
