@@ -2,7 +2,7 @@
 
 const buttonLogin = document.querySelector("#buttonLogin");
 const buttonCreateCard = document.querySelector("#buttonCreateCard");
-const visitCard = document.querySelector("#cards-container");
+const visitCardContainer = document.querySelector("#cards-container");
 
 // Another constants
 
@@ -10,4 +10,4 @@ const loginUrl = "https://ajax.test-danit.com/api/v2/cards/login"; // будет
 
 // export
 
-export { buttonLogin, buttonCreateCard, loginUrl, visitCard };
+export { buttonLogin, buttonCreateCard, loginUrl, visitCardContainer };
