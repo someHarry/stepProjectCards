@@ -6,9 +6,9 @@ const visitCardContainer = document.querySelector("#cards-container");
 
 // Another constants
 
-const URL = "https://ajax.test-danit.com/api/v2/cards/"; // url for Requests
-const loginUrl = "https://ajax.test-danit.com/api/v2/cards/login";
+const URL = "https://ajax.test-danit.com/api/v2/cards/"; // url for Requests to cards
+const loginUrl = "https://ajax.test-danit.com/api/v2/cards/login"; // url for Requests to login
 
 // export
 
-export { buttonLogin, buttonCreateCard, URL, loginUrl, visitCardContainer };
+export { buttonLogin, buttonCreateCard, visitCardContainer, URL, loginUrl };

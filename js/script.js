@@ -22,22 +22,11 @@ isToken();  // Проверяем наличие токена в LocalStorae, е
 const modalTemplate = document.querySelector("#modal").content;
 
 const formLogin = new FormLogin("Let me in", loginHandler);
-const formVisit = new FormVisit('hi',function (){});
 let mymodal = new Modal(modalTemplate, 'Login', formLogin.render(formLogin.renderInput()), 'modal-window');
 
 const formVisit = new FormVisit("hello", function () {
   console.log(this);
 });
 
-let mymodal = new Modal(
-  modalTemplate,
-  "ewgrg",
-  formLogin.render(formLogin.renderInput()),
-  "modal-window"
-);
-
-const formVisit = new FormVisit('hi',function (){});
-
-let mymodal = new Modal(modalTemplate, 'Login', formLogin.render(formLogin.renderInput()), 'modal-window');
 
 document.querySelector("body").append(mymodal.render());
