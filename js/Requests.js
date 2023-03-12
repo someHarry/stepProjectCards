@@ -5,7 +5,7 @@
 // - put (для удаления карточки)
 // - get (для получения всех карточек)
 
-import { URL } from "./constants";
+import { URL } from "./constants.js";
 import { loginHandler } from "./Login.js";
 
 // link / запрос на получение всех карточек
