@@ -6,8 +6,9 @@ const visitCardContainer = document.querySelector("#cards-container");
 
 // Another constants
 
-const loginUrl = "https://ajax.test-danit.com/api/v2/cards/login"; // будет перенесено в файл с константами
+const URL = "https://ajax.test-danit.com/api/v2/cards/"; // url for Requests to cards
+const loginUrl = "https://ajax.test-danit.com/api/v2/cards/login"; // url for Requests to login
 
 // export
 
-export { buttonLogin, buttonCreateCard, loginUrl, visitCardContainer };
+export { buttonLogin, buttonCreateCard, visitCardContainer, URL, loginUrl };

@@ -6,6 +6,7 @@ class VisitTherapist extends Visit {
     this.age = age;
   }
   render() {
+    super.render();
     const age = document.createElement("p");
     age.className = "visitCard__container--age";
     age.textContent = this.age;
