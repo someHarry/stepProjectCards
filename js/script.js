@@ -17,7 +17,7 @@ import { VisitCardiolog } from "./VisitCardiologist.js";
 import { VisitDentist } from "./VisitDentist.js";
 import { VisitTherapist } from "./VisitTherapist.js";
 
-isToken();  // Проверяем наличие токена в LocalStorae, если токен есть, прячем кнопку "Вход", открываем кнопку "Создать карточку"
+isToken(); // Проверяем наличие токена в LocalStorae, если токен есть, прячем кнопку "Вход", открываем кнопку "Создать карточку"
 
 const modalTemplate = document.querySelector("#modal").content;
 
