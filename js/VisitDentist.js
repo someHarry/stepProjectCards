@@ -6,6 +6,7 @@ class VisitDentist extends Visit {
     this.lastVisit = lastVisit;
   }
   render() {
+    super.render();
     const lastVisit = document.createElement("p");
     lastVisit.className = "visitCard__container--lastVisit";
     lastVisit.textContent = this.lastVisit;
