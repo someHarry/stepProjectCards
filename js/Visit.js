@@ -57,7 +57,7 @@ class Visit {
     visitCard.append(editBtn);
     visitCard.append(deleteIcon);
 
-    // создаю с классом hidden,
+    // создаю с классом hidden
     visitCard.append(purpose);
     visitCard.append(description);
     visitCard.append(priority);
