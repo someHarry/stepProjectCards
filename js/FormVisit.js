@@ -4,9 +4,6 @@ export default class FormVisit extends Form {
     constructor(submitTitle, formHandler) {
         super(submitTitle, formHandler);
     }
-    render(content) {
-        return super.render(content);
-    }
     renderVisit() {
         const select = document.createElement('select');
         select.className = "form-select form-select-m";
@@ -21,20 +18,17 @@ export default class FormVisit extends Form {
         optionDentist.textContent = 'Дантист';
         const optionTherapist = document.createElement('option');
         optionTherapist.value = '3';
-        optionTherapist.textContent = 'Дантист';
-        select.append(optionSelected,optionCardiologist,optionDentist,optionTherapist);
+        optionTherapist.textContent = 'Терапевт';
+        select.append(optionSelected, optionCardiologist, optionDentist, optionTherapist);
         return select;
     }
-    renderFields(){
-        // <label for="family-name-field">Фамилия</label>
-        // <input id="family-name-field" type="text" name="family-name">
-        // цель визита
-        // краткое описание визита
-        // выпадающее поле - срочность (обычная, приоритетная, неотложная)
-        // ФИО
+    renderFields() {
+        const fragmentVisit = document.createDocumentFragment();
+
         const labelVisit = document.createElement('label');
         labelVisit.htmlFor = "visit";
         labelVisit.textContent = "Цель визита";
+        labelVisit.className = 'mx-2';
         const inputVisit = document.createElement('input');
         inputVisit.id = "visit";
         inputVisit.type = "text";
@@ -42,18 +36,40 @@ export default class FormVisit extends Form {
         const labelDescription = document.createElement('label');
         labelDescription.htmlFor = "description";
         labelDescription.textContent = "Краткое описание визита";
+        labelDescription.className = 'mx-2';
         const inputDescription = document.createElement('input');
         inputDescription.id = "description";
         inputDescription.type = "text";
         inputDescription.placeholder = "Описание визита";
 
-
+        // const titleUrgency = document.createElement('p');
+        // titleUrgency.textContent = 'Срочность визита';
+        const selectUrgency = document.createElement('select');
+        selectUrgency.className = "form-select form-select-m";
+        const optionUrgency = document.createElement('option');
+        optionUrgency.selected;
+        optionUrgency.textContent = "Срочность визита";
+        const urgencyHigh = document.createElement('option');
+        urgencyHigh.value = '1';
+        urgencyHigh.textContent = 'High';
+        const urgencyNormal = document.createElement('option');
+        urgencyNormal.value = '2';
+        urgencyNormal.textContent = 'Normal';
+        const urgencyLow = document.createElement('option');
+        urgencyLow.value = '3';
+        urgencyLow.textContent = 'Low';
+        console.log(123)
+        selectUrgency.append(optionUrgency, urgencyHigh, urgencyNormal, urgencyLow);
         const labelName = document.createElement('label');
         labelName.htmlFor = "full-name";
         labelName.textContent = "Фамилия Имя Отчество";
+        labelName.className = 'mx-2';
         const inputName = document.createElement('input');
         inputName.id = "full-name";
         inputName.type = "text";
         inputName.placeholder = "ФИО";
+
+        fragmentVisit.append(labelVisit, inputVisit, labelDescription, inputDescription, selectUrgency,labelName,inputName);
+        return fragmentVisit;
     }
 }
