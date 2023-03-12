@@ -40,6 +40,9 @@ class VisitCardiolog extends Visit {
     visitCard.append(bodyMass);
     visitCard.append(normPressure);
     visitCard.append(prevDiseases);
+
+    console.log(visitCard);
+    return visitCard;
   }
 }
 

@@ -12,6 +12,8 @@ class VisitDentist extends Visit {
 
     visitCard.append(lastVisit);
 
+    console.log(visitCard);
+    return visitCard;
   }
 }
 
