@@ -11,6 +11,9 @@ class VisitTherapist extends Visit {
     age.textContent = this.age;
 
     visitCard.append(age);
+
+    console.log(visitCard);
+    return visitCard;
   }
 }
 
