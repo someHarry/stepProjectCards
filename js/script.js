@@ -13,6 +13,6 @@ const formLogin = new FormLogin("knopka", function () {
   // console.log(this)
 });
 const formVisit = new FormVisit('hi',function (){});
-let mymodal = new Modal(modalTemplate, 'Login', formLogin.render(formVisit.renderVisit()), 'modal-window');
+let mymodal = new Modal(modalTemplate, 'Login', formLogin.render(formLogin.renderInput()), 'modal-window');
 
 document.querySelector("body").append(mymodal.render());
