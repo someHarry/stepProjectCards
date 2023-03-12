@@ -4,7 +4,6 @@ import { hide, show } from "./Utilities.js";
 let token = localStorage.getItem("token"); // Получаем token из local storage
 
 function isToken() {
-
     if (!!token) {       // Проверяем, получили ли мы токен, если токен не null, прячем форму авторизации и показываем кнопку "Создать карточку"
         hide(buttonLogin);      // Надо будет создать функцию, которая навешивает класс hidden
         show(buttonCreateCard); // ...и убирает его
@@ -23,7 +22,10 @@ function loginHandler(event) {
         token = tk;
         localStorage.setItem('token', token);
         })
-        .then(isToken)
+        .then((token)=>{
+            document.querySelector(".modal .btn-close").click();
+            isToken(token)
+        })
 }
 
 
