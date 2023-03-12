@@ -1,22 +1,21 @@
-
 import {
   buttonLogin,
   buttonCreateCard,
   loginUrl,
   visitCardContainer,
 } from "./constants.js";
-import {token, isToken, loginHandler} from "./Login.js";
-import {Requests} from "./Requests.js";
+import { token, isToken, loginHandler } from "./Login.js";
+import { Requests } from "./Requests.js";
 
-import Modal  from "./Modal.js";
+import Modal from "./Modal.js";
 import Form from "./Form.js";
 import FormLogin from "./FormLogin.js";
 import FormVisit from "./FormVisit.js";
 
 import { visitCard, Visit } from "./Visit.js";
-import { VisitCardiolog } from "./VisitCardiologist";
-import { VisitDentist } from "./VisitDentist";
-import { VisitTherapist } from "./VisitTherapist";
+import { VisitCardiolog } from "./VisitCardiologist.js";
+import { VisitDentist } from "./VisitDentist.js";
+import { VisitTherapist } from "./VisitTherapist.js";
 
 const modalTemplate = document.querySelector("#modal").content;
 
@@ -25,7 +24,7 @@ const form = new Form("knopka", function () {
 });
 
 const formLogin = new FormLogin("knopka", function (event) {
-    loginHandler(event);
+  loginHandler(event);
 });
 
 const formVisit = new FormVisit("hello", function () {
