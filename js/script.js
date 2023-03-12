@@ -17,27 +17,20 @@ import { VisitCardiolog } from "./VisitCardiologist.js";
 import { VisitDentist } from "./VisitDentist.js";
 import { VisitTherapist } from "./VisitTherapist.js";
 
-isToken();  // Проверяем наличие токена в LocalStorae, если токен есть, прячем кнопку "Вход", открываем кнопку "Создать карточку"
+isToken(); // Проверяем наличие токена в LocalStorae, если токен есть, прячем кнопку "Вход", открываем кнопку "Создать карточку"
 
 const modalTemplate = document.querySelector("#modal").content;
 
 const formLogin = new FormLogin("Let me in", loginHandler);
-const formVisit = new FormVisit('hi',function (){});
-let mymodal = new Modal(modalTemplate, 'Login', formLogin.render(formLogin.renderInput()), 'modal-window');
-
-const formVisit = new FormVisit("hello", function () {
-  console.log(this);
-});
-
 let mymodal = new Modal(
   modalTemplate,
-  "ewgrg",
+  "Login",
   formLogin.render(formLogin.renderInput()),
   "modal-window"
 );
 
-const formVisit = new FormVisit('hi',function (){});
-
-let mymodal = new Modal(modalTemplate, 'Login', formLogin.render(formLogin.renderInput()), 'modal-window');
+const formVisit = new FormVisit("hello", function () {
+  console.log(this);
+});
 
 document.querySelector("body").append(mymodal.render());

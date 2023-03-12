@@ -5,22 +5,8 @@
 // - put (для удаления карточки)
 // - get (для получения всех карточек)
 
-import { URL } from "./constants";
+import { URL } from "./constants.js";
 import { loginHandler } from "./Login.js";
-
-// link / запрос на получение всех карточек
-let token = "5db4c838-6625-4594-b0ea-4feb25002fe6";
-let data = { email: "your@email.com", password: "password" };
-let editData = {
-  age: "31",
-  description: "bvdfoibh",
-  fullname: "Головко",
-  id: 112035,
-  name: "Аліна",
-  nickname: "Іванівна",
-  target: "dofih",
-  urgency: "Звичайна",
-};
 
 class Requests {
   static GET(URL) {
@@ -96,4 +82,4 @@ class Requests {
   }
 }
 
-export { URL, token, Requests };
+export { URL, Requests };
