@@ -21,12 +21,13 @@ isToken();  // Проверяем наличие токена в LocalStorae, е
 
 const modalTemplate = document.querySelector("#modal").content;
 
-const formLogin = new FormLogin("Let me in", loginHandler);
-let mymodal = new Modal(modalTemplate, 'Login', formLogin.render(formLogin.renderInput()), 'modal-window');
-
-const formVisit = new FormVisit("hello", function () {
+const formLogin = new FormLogin("Войти", loginHandler);
+const formVisit = new FormVisit("Создать", function () {
   console.log(this);
 });
 
+let modalForLogin = new Modal(modalTemplate, "Login", formLogin.render(formLogin.renderInput()), "modal-for-login");
+let modalForCreate = new Modal(modalTemplate, "Create card", formVisit.render(formVisit.renderVisit()), "modal-for-create");
 
-document.querySelector("body").append(mymodal.render());
+document.querySelector("body").append(modalForLogin.render());
+document.querySelector("body").append(modalForCreate.render());
