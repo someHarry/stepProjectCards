@@ -1,5 +1,8 @@
 import Form from "./Form.js";
 import createFieldsCardiologist from "./createFieldsCardiologist.js";
+import createFieldsGeneral from "./createFieldsGeneral.js";
+import createFieldsDentist from "./createFieldsDentist.js";
+import createFieldsTherapist from "./createFieldsTherapist.js";
 
 export default class FormVisit extends Form {
     constructor(submitTitle, formHandler) {
@@ -22,14 +25,25 @@ export default class FormVisit extends Form {
         optionTherapist.textContent = 'Терапевт';
         select.append(optionSelected, optionCardiologist, optionDentist, optionTherapist);
 
-        const containerVisit = document.createElement('div');
-containerVisit.className = "containerVisit";
-        select.addEventListener('change',(event)=>{
-            if (event.target.value === '1'){
-                document.querySelector(".modal-content .form-select.form-select-m").after(createFieldsCardiologist(containerVisit))            }
+        const doctorsFieldsWrapper = document.createElement("div");
 
-            console.log(containerVisit)
-        })
-        return select;
+        select.addEventListener("change", (event) => {
+            doctorsFieldsWrapper.innerHTML = "";
+
+            if (select.options[select.selectedIndex].value === "1") {
+                doctorsFieldsWrapper.append(createFieldsGeneral(), createFieldsCardiologist());
+            }
+
+            if (select.options[select.selectedIndex].value === "2") {
+                doctorsFieldsWrapper.append(createFieldsGeneral(), createFieldsDentist());
+            }
+
+            if (select.options[select.selectedIndex].value === "3") {
+                doctorsFieldsWrapper.append(createFieldsGeneral(), createFieldsTherapist());
+            }
+        });
+        const fragment = document.createDocumentFragment();
+        fragment.append(select, doctorsFieldsWrapper);
+        return fragment;
     }
 }
