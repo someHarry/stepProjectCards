@@ -1,5 +1,5 @@
-export default function createFieldsGeneral (containerVisit){
-    containerVisit.innerHTML = '';
+export default function createFieldsGeneral (){
+    const fragment = document.createDocumentFragment();
     const labelVisit = document.createElement('label');
     labelVisit.htmlFor = "visit";
     labelVisit.textContent = "Цель визита";
@@ -45,6 +45,6 @@ export default function createFieldsGeneral (containerVisit){
     inputName.type = "text";
     inputName.placeholder = "ФИО";
     inputName.classList.add("mb-2");
-    containerVisit.append(labelVisit, inputVisit, labelDescription, inputDescription, selectUrgency,labelName,inputName);
-    return containerVisit;
+    fragment.append(labelVisit, inputVisit, labelDescription, inputDescription, selectUrgency,labelName,inputName);
+    return fragment;
 }

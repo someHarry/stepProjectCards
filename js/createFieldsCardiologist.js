@@ -1,7 +1,7 @@
-import createFieldsGeneral from "./createFieldsGeneral.js";
 
-export default function createFieldsCardiologist (containerVisit){
-   const div = createFieldsGeneral(containerVisit);
+export default function createFieldsCardiologist (){
+
+ const fragment = document.createDocumentFragment();
 
     const labelPressure = document.createElement('label');
     labelPressure.htmlFor = "pressure";
@@ -43,6 +43,6 @@ export default function createFieldsCardiologist (containerVisit){
     inputAge.placeholder = "Возраст";
     inputAge.classList.add("mb-2");
 
-    div.append(labelPressure, inputPressure, labelBodyMass, inputBodyMass, labelDiseases, inputDiseases, labelAge,inputAge);
-    return div;
+    fragment.append(labelPressure, inputPressure, labelBodyMass, inputBodyMass, labelDiseases, inputDiseases, labelAge,inputAge);
+    return fragment;
 }
