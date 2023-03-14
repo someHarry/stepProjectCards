@@ -6,7 +6,7 @@
 // - get (для получения всех карточек)
 
 import { URL } from "./constants.js";
-import { loginHandler } from "./Login.js";
+import { loginHandler, token } from "./Login.js";
 
 class Requests {
   static GET(URL) {
