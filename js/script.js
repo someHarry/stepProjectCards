@@ -16,6 +16,7 @@ import { visitCard, Visit } from "./Visit.js";
 import { VisitCardiolog } from "./VisitCardiologist.js";
 import { VisitDentist } from "./VisitDentist.js";
 import { VisitTherapist } from "./VisitTherapist.js";
+import createFieldsCardiologist from "./createFieldsCardiologist.js";
 
 isToken(); // Проверяем наличие токена в LocalStorae, если токен есть, прячем кнопку "Вход", открываем кнопку "Создать карточку"
 
