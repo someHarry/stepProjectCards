@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-auto">
                     <select id="status__filter" class="form-select form-select-m" aria-label=".form-select-sm example">
-                        <option selected>Поиск по статусу</option>
+                        <option value="0" selected>Поиск по статусу</option>
                         <option value="1">Open</option>
                         <option value="2">Done</option>
                     </select>
@@ -55,14 +55,14 @@
                 <div class="col-auto">
                     <select id="priority__filter" class="form-select form-select-m"
                         aria-label=".form-select-sm example">
-                        <option selected>Срочность визита</option>
+                        <option value="0" selected>Срочность визита</option>
                         <option value="1">High</option>
                         <option value="2">Normal</option>
                         <option value="3">Low</option>
                     </select>
                 </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-info text-light">Поиск</button>
+                    <button type="submit" id="search__btn" class="btn btn-info text-light">Поиск</button>
                 </div>
             </form>
         </section>
