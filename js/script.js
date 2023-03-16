@@ -6,6 +6,7 @@ import {
 } from "./constants.js";
 import { token, isToken, loginHandler } from "./Login.js";
 import { Requests } from "./Requests.js";
+import { visitHandler } from "./createCardLogic.js";
 
 import Modal from "./Modal.js";
 import Form from "./Form.js";
@@ -23,9 +24,7 @@ isToken(); // Проверяем наличие токена в LocalStorae, е�
 const modalTemplate = document.querySelector("#modal").content;
 
 const formLogin = new FormLogin("Войти", loginHandler);
-const formVisit = new FormVisit("Создать", function () {
-  console.log(this);
-});
+const formVisit = new FormVisit("Создать", visitHandler);
 
 let modalForLogin = new Modal(modalTemplate, "Login", formLogin.render(formLogin.renderInput()), "modal-for-login");
 let modalForCreate = new Modal(modalTemplate, "Create card", formVisit.render(formVisit.renderVisit()), "modal-for-create");
