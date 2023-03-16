@@ -15,7 +15,7 @@ export default function createFieldsCardiologist (){
 
     const labelBodyMass = document.createElement('label');
     labelBodyMass.htmlFor = "pressure";
-    labelBodyMass.textContent = "Обычное давление";
+    labelBodyMass.textContent = "Индекс массы тела";
     labelBodyMass.className = 'mx-2';
     const inputBodyMass =document.createElement('input');
     inputBodyMass.id = "mass";
