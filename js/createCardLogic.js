@@ -13,6 +13,7 @@ function visitHandler(event) {
         newCardData.purpose = collectedData.find(d=>d.id === "visit").value;
         newCardData.description = collectedData.find(d=>d.id === "description").value;
         newCardData.fio = collectedData.find(d=>d.id === "full-name").value;
+        newCardData.status = "Open";
         if (collectedData[3].value === "1"){
             newCardData.priority = "High"
         } else
