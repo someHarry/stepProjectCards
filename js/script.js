@@ -17,15 +17,25 @@ import { VisitCardiolog } from "./VisitCardiologist.js";
 import { VisitDentist } from "./VisitDentist.js";
 import { VisitTherapist } from "./VisitTherapist.js";
 import createFieldsCardiologist from "./createFieldsCardiologist.js";
+import ModalConfirmDelete from "./ModalConfirmDelete.js";
 
 isToken(); // Проверяем наличие токена в LocalStorae, если токен есть, прячем кнопку "Вход", открываем кнопку "Создать карточку"
 
 const modalTemplate = document.querySelector("#modal").content;
 
+
+
+
 const formLogin = new FormLogin("Войти", loginHandler);
 const formVisit = new FormVisit("Создать", function () {
   console.log(this);
 });
+//Это модалка для подтверждения
+// const modalConfirmDelete = document.querySelector('#modalConfirmDelete').content;
+// let modalConfirmDelete1 = new ModalConfirmDelete(modalConfirmDelete, 'karina');
+// modalConfirmDelete1.render()
+// document.querySelector("body").append(modalConfirmDelete1.render());
+//////////
 
 let modalForLogin = new Modal(modalTemplate, "Login", formLogin.render(formLogin.renderInput()), "modal-for-login");
 let modalForCreate = new Modal(modalTemplate, "Create card", formVisit.render(formVisit.renderVisit()), "modal-for-create");
