@@ -17,6 +17,7 @@ class Visit {
     const visitCard = document.createElement("div");
     visitCard.className = "visitCard__container";
     visitCard.dataset.cardId = this.cardId;
+    visitCard.dataset.done = false;
 
     // создание полей
 
@@ -56,7 +57,6 @@ class Visit {
     const status = document.createElement("p");
     status.className = "cards__status";
     status.textContent = "open";
-    status.dataset.done = false;
 
     //  вывод информации которая должна показываться сразу
     visitCard.append(fio);

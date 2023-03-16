@@ -1,3 +1,5 @@
+import { hide, show } from "./Utilities.js";
+
 const input = document.querySelector("#inputText2");
 const statusFilter = document.querySelector("#status__filter");
 const priorityFilter = document.querySelector("#priority__filter");
@@ -8,30 +10,43 @@ const cardsForFilter = [...document.querySelectorAll(".cards__status")];
 function handler() {
   if (statusFilter.value === "0") {
     console.log("all");
-
-    return (cardsForFilter.style.display = "block");
-  } else if (statusFilter.value === "1") {
-    return cardsForFilter.forEach((item) => {
+    cardsForFilter.forEach((item) => {
+      show(item);
+    });
+  }
+  if (statusFilter.value === "1") {
+    console.log("all2");
+    cardsForFilter.forEach((item) => {
       if (item.dataset.done === "true") {
-        item.style.display = "block";
-        console.log("block");
+        show(item);
+
+        console.log("all3");
       } else {
-        item.style.display = "none";
+        hide(item);
         console.log("none");
       }
     });
-  } else {
-    return cardsForFilter.forEach((item) => {
+  }
+  if (statusFilter.value === "2") {
+    console.log("all4");
+
+    cardsForFilter.forEach((item) => {
+      console.log("all5");
+
       if (item.dataset.done === "false") {
-        item.style.display = "block";
+        console.log("all");
+
+        console.log("none");
+
+        show(item);
       } else {
-        item.style.display = "none";
+        hide(item);
       }
     });
   }
 }
 
-searchBtn.addEventListener("change", (el) => {
+searchBtn.addEventListener("click", (el) => {
   el.preventDefault();
   handler();
 });
@@ -40,19 +55,6 @@ console.log(input);
 console.log(statusFilter);
 console.log(priorityFilter);
 console.log(searchBtn);
-
-function Status() {
-  const getStatusValue = statusFilter.options[statusFilter.selectedIndex].value;
-  searchBtn.addEventListener("click", () => {
-    if (getStatusValue === "1") {
-      return console.log(getStatusValue);
-    } else if (getStatusValue === "2") {
-      return console.log(getStatusValue);
-    } else {
-      return console.log(getStatusValue);
-    }
-  });
-}
 
 class Filter {
   constructor() {}
@@ -85,4 +87,11 @@ class Filter {
   }
 }
 
-export { input, statusFilter, priorityFilter };
+export {
+  input,
+  statusFilter,
+  priorityFilter,
+  searchBtn,
+  cardsForFilter,
+  handler,
+};

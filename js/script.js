@@ -19,10 +19,16 @@ import { VisitDentist } from "./VisitDentist.js";
 import { VisitTherapist } from "./VisitTherapist.js";
 import createFieldsCardiologist from "./createFieldsCardiologist.js";
 
-import { input, statusFilter, priorityFilter } from "./Filter.js";
+import {
+  input,
+  statusFilter,
+  priorityFilter,
+  searchBtn,
+  cardsForFilter,
+  handler,
+} from "./Filter.js";
 
 import ModalConfirmDelete from "./ModalConfirmDelete.js";
-
 
 isToken(); // Проверяем наличие токена в LocalStorae, если токен есть, прячем кнопку "Вход", открываем кнопку "Создать карточку"
 
