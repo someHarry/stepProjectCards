@@ -1,6 +1,9 @@
-import {isToken, token} from "./Login";
+import {isToken, deleteToken} from "./Login.js";
+import {buttonLogout} from "./constants.js"
 
 function logout (){
-    localStorage.removeItem("token");
-    isToken(token);
+    deleteToken();
+    isToken();
 }
+
+export {logout}
