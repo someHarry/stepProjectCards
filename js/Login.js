@@ -1,5 +1,8 @@
 import {buttonCreateCard, buttonLogin, loginUrl} from "./constants.js";
 import {hide, show} from "./Utilities.js";
+import {downloadCards} from "./downloadCards.js"
+import {Requests} from "./Requests.js";
+
 
 let token = localStorage.getItem("token"); // Получаем token из local storage
 
@@ -7,9 +10,10 @@ function isToken() {
     if (token === "Incorrect username or password") {
         token = false;
     }
-    if (!!token) {       // Проверяем, получили ли мы токен, если токен не null, прячем форму авторизации и показываем кнопку "Создать карточку"
-        hide(buttonLogin);      // Надо будет создать функцию, которая навешивает класс hidden
-        show(buttonCreateCard); // ...и убирает его
+    if (!!token) {
+        downloadCards() // подгружает карточки
+        hide(buttonLogin);      // навешивает класс hidden
+        show(buttonCreateCard); // и убирает его
     }
 }
 
@@ -33,4 +37,3 @@ function loginHandler(event) {
 
 
 export {token, isToken, loginHandler}
-import {Requests} from "./Requests.js";

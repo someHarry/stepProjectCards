@@ -8,7 +8,7 @@ visitCard.className = "visitCard__container";
 visitCardContainer.append(visitCard);
 
 class Visit {
-  constructor(fio, doctor, purpose, description, priority) {
+  constructor({fio, doctor, purpose, description, priority}) {
     this.fio = fio;
     this.doctor = doctor;
     this.purpose = purpose;

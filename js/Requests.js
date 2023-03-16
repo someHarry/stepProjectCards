@@ -6,11 +6,11 @@
 // - get (для получения всех карточек)
 
 import { URL } from "./constants.js";
-import { loginHandler } from "./Login.js";
+import { loginHandler, token } from "./Login.js";
 
 class Requests {
   static GET(URL) {
-    fetch(URL, {
+    return fetch(URL, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -25,7 +25,7 @@ class Requests {
   }
 
   static POST(URL, data) {
-    fetch(URL, {
+    return fetch(URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ class Requests {
   }
 
   static PUT(URL, editData) {
-    fetch(URL, {
+    return fetch(URL, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +57,7 @@ class Requests {
   }
 
   static DELETE(URL) {
-    fetch(URL, {
+    return fetch(URL, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`, // уникальный токен юзера
