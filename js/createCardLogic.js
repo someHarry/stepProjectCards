@@ -1,5 +1,6 @@
 import {Requests} from "./Requests.js";
 import {URL} from "./constants.js";
+import {Visit} from "./Visit.js";
 
 function visitHandler(event) {
     if (event.target.querySelector("select").value !== "Выбор врача") {
@@ -36,9 +37,13 @@ function visitHandler(event) {
             newCardData.age = collectedData.find(d=>d.id === "age").value;
         }
 
+        document.querySelector("#modal-for-create .btn-close").click()
 
-        console.log(newCardData);
-        // Requests.POST(URL, data);
+        Requests.POST(URL, newCardData)
+            .then(response => {
+                let newCard = new Visit(response);
+                newCard.render();
+            });
     }
 }
 
