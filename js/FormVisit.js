@@ -31,10 +31,11 @@ export default class FormVisit extends Form {
             doctorsFieldsWrapper.innerHTML = "";
 
             if (select.options[select.selectedIndex].value === "1") {
-                doctorsFieldsWrapper.append(createFieldsGeneral(), createFieldsCardiologist());
+                doctorsFieldsWrapper.append(createFieldsGeneral(),createFieldsCardiologist());
             }
 
             if (select.options[select.selectedIndex].value === "2") {
+
                 doctorsFieldsWrapper.append(createFieldsGeneral(), createFieldsDentist());
             }
 
