@@ -13,12 +13,16 @@ import Form from "./Form.js";
 import FormLogin from "./FormLogin.js";
 import FormVisit from "./FormVisit.js";
 
-import { visitCard, Visit } from "./Visit.js";
+import { Visit } from "./Visit.js";
 import { VisitCardiolog } from "./VisitCardiologist.js";
 import { VisitDentist } from "./VisitDentist.js";
 import { VisitTherapist } from "./VisitTherapist.js";
 import createFieldsCardiologist from "./createFieldsCardiologist.js";
+
+import { input, statusFilter, priorityFilter } from "./Filter.js";
+
 import ModalConfirmDelete from "./ModalConfirmDelete.js";
+
 
 isToken(); // Проверяем наличие токена в LocalStorae, если токен есть, прячем кнопку "Вход", открываем кнопку "Создать карточку"
 
@@ -35,8 +39,18 @@ const formVisit = new FormVisit("Создать", visitHandler);
 // document.querySelector("body").append(modalConfirmDelete1.render());
 //
 
-let modalForLogin = new Modal(modalTemplate, "Login", formLogin.render(formLogin.renderInput()), "modal-for-login");
-let modalForCreate = new Modal(modalTemplate, "Create card", formVisit.render(formVisit.renderVisit()), "modal-for-create");
+let modalForLogin = new Modal(
+  modalTemplate,
+  "Login",
+  formLogin.render(formLogin.renderInput()),
+  "modal-for-login"
+);
+let modalForCreate = new Modal(
+  modalTemplate,
+  "Create card",
+  formVisit.render(formVisit.renderVisit()),
+  "modal-for-create"
+);
 
 document.querySelector("body").append(modalForLogin.render());
 document.querySelector("body").append(modalForCreate.render());
