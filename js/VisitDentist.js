@@ -1,8 +1,8 @@
 import { visitCard, Visit } from "./Visit.js";
 
 class VisitDentist extends Visit {
-  constructor(fio, doctor, purpose, description, priority, lastVisit) {
-    super(fio, doctor, purpose, description, priority);
+  constructor({ fio, doctor, purpose, description, priority, lastVisit }) {
+    super({ fio, doctor, purpose, description, priority });
     this.lastVisit = lastVisit;
   }
   render() {
