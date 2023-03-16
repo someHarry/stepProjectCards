@@ -4,9 +4,9 @@ import {Visit} from "./Visit.js";
 
 async function downloadCards() {
     let res = await Requests.GET(URL)
+    visitCardContainer.innerHTML = "";
     if ( res.length > 0 ) {
         res.forEach(data => {
-            visitCardContainer.innerHTML = "";
             let card = new Visit(data);
             visitCardContainer.append(card.render());
         })
