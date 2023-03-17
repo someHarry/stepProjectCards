@@ -1,6 +1,7 @@
 import {Requests} from "./Requests.js";
 import {URL, visitCardContainer} from "./constants.js";
 import {Visit} from "./Visit.js";
+import {renderPlaceholder} from "./renderPlaceholder";
 
 async function downloadCards() {
     let res = await Requests.GET(URL)
@@ -10,6 +11,8 @@ async function downloadCards() {
             let card = new Visit(data);
             visitCardContainer.append(card.render());
         })
+    } else {
+        renderPlaceholder();
     }
 }
 
