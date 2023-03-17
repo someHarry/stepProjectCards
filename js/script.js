@@ -25,7 +25,6 @@ import { input, statusFilter, priorityFilter } from "./Filter.js";
 
 import ModalConfirmDelete from "./ModalConfirmDelete.js";
 
-
 isToken(); // Проверяем наличие токена в LocalStorae, если токен есть, прячем кнопку "Вход", открываем кнопку "Создать карточку"
 buttonLogout.addEventListener("click", logout) // Вешаем хендлер на кнопку "Выход"
 
