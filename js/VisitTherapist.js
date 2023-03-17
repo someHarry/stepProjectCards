@@ -1,8 +1,8 @@
-import { visitCard, Visit } from "./Visit.js";
+import { Visit } from "./Visit.js";
 
 class VisitTherapist extends Visit {
-  constructor(fio, doctor, purpose, description, priority, age) {
-    super(fio, doctor, purpose, description, priority);
+  constructor({ fio, doctor, purpose, description, priority, status, age }) {
+    super({ fio, doctor, purpose, description, priority, status });
     this.age = age;
   }
   render() {

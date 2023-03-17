@@ -1,18 +1,19 @@
-import { visitCard, Visit } from "./Visit.js";
+import { Visit } from "./Visit.js";
 
 class VisitCardiolog extends Visit {
-  constructor(
+  constructor({
     fio,
     doctor,
     purpose,
     description,
     priority,
+    status,
     age,
     bodyMass,
     normPressure,
-    prevDiseases
-  ) {
-    super(fio, doctor, purpose, description, priority);
+    prevDiseases,
+  }) {
+    super({ fio, doctor, purpose, description, priority, status });
     this.normPressure = normPressure;
     this.bodyMass = bodyMass;
     this.prevDiseases = prevDiseases;

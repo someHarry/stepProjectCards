@@ -3,19 +3,22 @@
 //  контейнер для карточки
 import { visitCardContainer } from "./constants.js";
 
-const visitCard = document.createElement("div");
-visitCard.className = "visitCard__container";
-visitCardContainer.append(visitCard);
-
 class Visit {
-  constructor({fio, doctor, purpose, description, priority}) {
+  constructor({ cardId, fio, doctor, purpose, description, priority, status }) {
     this.fio = fio;
     this.doctor = doctor;
     this.purpose = purpose;
     this.description = description;
     this.priority = priority;
+    this.status = status;
+    this.cardId = cardId;
   }
   render() {
+    const visitCard = document.createElement("div");
+    visitCard.className = "visitCard__container";
+    visitCard.dataset.cardId = this.cardId;
+    visitCard.dataset.done = false;
+
     // создание полей
 
     const fio = document.createElement("p");
@@ -50,12 +53,18 @@ class Visit {
     deleteIcon.className = "visitCard__container--deleteIcon";
     deleteIcon.textContent = "❌";
 
+    // status is made for Filter.js
+    const status = document.createElement("p");
+    status.className = "cards__status";
+    status.textContent = "open";
+
     //  вывод информации которая должна показываться сразу
     visitCard.append(fio);
     visitCard.append(doctor);
     visitCard.append(showMoreBtn);
     visitCard.append(editBtn);
     visitCard.append(deleteIcon);
+    visitCard.append(status);
 
     // создаю с классом hidden
     visitCard.append(purpose);
@@ -85,7 +94,7 @@ class Visit {
   }
 }
 
-export { visitCard, Visit };
+export { Visit };
 
 // const test = new Visit(           was crated for tests, might still need it
 //   "Anastasiia M.",
