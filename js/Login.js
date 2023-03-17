@@ -2,6 +2,7 @@ import {buttonCreateCard, buttonLogin, buttonLogout, loginUrl, visitCardContaine
 import {hide, show} from "./Utilities.js";
 import {downloadCards} from "./downloadCards.js"
 import {Requests} from "./Requests.js";
+import {renderPlaceholder} from "./renderPlaceholder";
 
 
 let token = localStorage.getItem("token"); // Получаем token из local storage
@@ -19,12 +20,7 @@ function isToken() {
         show(buttonLogin);
         hide(buttonCreateCard);
         hide(buttonLogout);
-        visitCardContainer.innerHTML = `<section class="images pt-3" id="placeholder">
-                                            <div class="images-container mx-auto" style="width: 25rem;">
-                                                <img src="https://www.englishdom.com/dynamicus/blog-post/000/002/383/1637751298_content_700x455.jpg" class="card-img-top mb-4" alt="">
-                                                <p class="images-text text-center fs-3 text-light"> No items have been added</p>
-                                            </div>
-                                        </section>`;
+        renderPlaceholder()
     }
 }
 
