@@ -2,7 +2,7 @@ import {buttonCreateCard, buttonLogin, buttonLogout, loginUrl, visitCardContaine
 import {hide, show} from "./Utilities.js";
 import {downloadCards} from "./downloadCards.js"
 import {Requests} from "./Requests.js";
-import {renderPlaceholder} from "./renderPlaceholder";
+import {renderPlaceholder} from "./renderPlaceholder.js";
 
 
 let token = localStorage.getItem("token"); // Получаем token из local storage
