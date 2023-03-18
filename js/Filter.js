@@ -46,10 +46,9 @@ function Priority() {
       show(item);
     });
   }
-  if (priorityFilter === "1") {
+  if (getPriorityValue === "1") {
     cardsForFilter.forEach((item) => {
-      if (item.priority === "High") {
-        console.log(item);
+      if (item.dataset.priority === "High") {
         show(item);
       } else {
         hide(item);
@@ -58,7 +57,7 @@ function Priority() {
   }
   if (getPriorityValue === "2") {
     cardsForFilter.forEach((item) => {
-      if (item.priority === "Normal") {
+      if (item.dataset.priority === "Normal") {
         show(item);
       } else {
         hide(item);
@@ -67,7 +66,7 @@ function Priority() {
   }
   if (getPriorityValue === "3") {
     cardsForFilter.forEach((item) => {
-      if (item.priority === "Low") {
+      if (item.dataset.priority === "Low") {
         show(item);
       } else {
         hide(item);
@@ -78,6 +77,7 @@ function Priority() {
 
 searchBtn.addEventListener("click", (el) => {
   el.preventDefault();
+  console.log("test");
   handler();
   Priority();
 });

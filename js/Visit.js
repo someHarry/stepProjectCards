@@ -18,6 +18,7 @@ class Visit {
     visitCard.className = "visitCard__container";
     visitCard.dataset.cardId = this.cardId;
     visitCard.dataset.done = false;
+    visitCard.dataset.priority = this.priority;
 
     // создание полей
 
