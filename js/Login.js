@@ -1,19 +1,26 @@
-import {buttonCreateCard, buttonLogin, loginUrl} from "./constants.js";
+import {buttonCreateCard, buttonLogin, buttonLogout, loginUrl, visitCardContainer} from "./constants.js";
 import {hide, show} from "./Utilities.js";
 import {downloadCards} from "./downloadCards.js"
 import {Requests} from "./Requests.js";
+import {renderPlaceholder} from "./renderPlaceholder";
 
 
 let token = localStorage.getItem("token"); // Получаем token из local storage
 
 function isToken() {
     if (token === "Incorrect username or password") {
-        token = false;
+        deleteToken();
     }
     if (!!token) {
         downloadCards() // подгружает карточки
         hide(buttonLogin);      // навешивает класс hidden
         show(buttonCreateCard); // и убирает его
+        show(buttonLogout);
+    } else {
+        show(buttonLogin);
+        hide(buttonCreateCard);
+        hide(buttonLogout);
+        renderPlaceholder()
     }
 }
 
@@ -35,5 +42,10 @@ function loginHandler(event) {
         })
 }
 
+function deleteToken() {
+    localStorage.removeItem("token");
+    token = false;
+}
 
-export {token, isToken, loginHandler}
+
+export {token, isToken, deleteToken, loginHandler}
