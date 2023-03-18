@@ -1,7 +1,7 @@
 import {Requests} from "./Requests.js";
 import {URL, visitCardContainer} from "./constants.js";
 import {Visit} from "./Visit.js";
-import {renderPlaceholder} from "./renderPlaceholder";
+import {renderPlaceholder} from "./renderPlaceholder.js";
 
 async function downloadCards() {
     let res = await Requests.GET(URL)
