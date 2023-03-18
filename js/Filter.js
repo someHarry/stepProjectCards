@@ -5,39 +5,68 @@ const statusFilter = document.querySelector("#status__filter");
 const priorityFilter = document.querySelector("#priority__filter");
 const searchBtn = document.querySelector("#search__btn");
 
-const cardsForFilter = [...document.querySelectorAll(".cards__status")];
-
 function handler() {
+  const cardsForFilter = [
+    ...document.querySelectorAll(".visitCard__container"),
+  ];
   if (statusFilter.value === "0") {
-    console.log("all");
     cardsForFilter.forEach((item) => {
       show(item);
     });
   }
   if (statusFilter.value === "1") {
-    console.log("all2");
     cardsForFilter.forEach((item) => {
-      if (item.dataset.done === "true") {
+      if (item.dataset.done === "false") {
         show(item);
-
-        console.log("all3");
       } else {
         hide(item);
-        console.log("none");
       }
     });
   }
   if (statusFilter.value === "2") {
-    console.log("all4");
-
     cardsForFilter.forEach((item) => {
-      console.log("all5");
+      if (item.dataset.done === "true") {
+        show(item);
+      } else {
+        hide(item);
+      }
+    });
+  }
+}
 
-      if (item.dataset.done === "false") {
-        console.log("all");
+function Priority() {
+  const cardsForFilter = [
+    ...document.querySelectorAll(".visitCard__container"),
+  ];
+  const getPriorityValue =
+    priorityFilter.options[priorityFilter.selectedIndex].value;
 
-        console.log("none");
-
+  if (getPriorityValue === "0") {
+    cardsForFilter.forEach((item) => {
+      show(item);
+    });
+  }
+  if (getPriorityValue === "1") {
+    cardsForFilter.forEach((item) => {
+      if (item.dataset.priority === "High") {
+        show(item);
+      } else {
+        hide(item);
+      }
+    });
+  }
+  if (getPriorityValue === "2") {
+    cardsForFilter.forEach((item) => {
+      if (item.dataset.priority === "Normal") {
+        show(item);
+      } else {
+        hide(item);
+      }
+    });
+  }
+  if (getPriorityValue === "3") {
+    cardsForFilter.forEach((item) => {
+      if (item.dataset.priority === "Low") {
         show(item);
       } else {
         hide(item);
@@ -48,13 +77,10 @@ function handler() {
 
 searchBtn.addEventListener("click", (el) => {
   el.preventDefault();
+  console.log("test");
   handler();
+  Priority();
 });
-
-console.log(input);
-console.log(statusFilter);
-console.log(priorityFilter);
-console.log(searchBtn);
 
 class Filter {
   constructor() {}
@@ -87,11 +113,4 @@ class Filter {
   }
 }
 
-export {
-  input,
-  statusFilter,
-  priorityFilter,
-  searchBtn,
-  cardsForFilter,
-  handler,
-};
+export { input, statusFilter, priorityFilter, searchBtn, handler };
