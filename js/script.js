@@ -2,7 +2,8 @@ import {
   buttonLogin,
   buttonCreateCard,
   loginUrl,
-  visitCardContainer, buttonLogout,
+  visitCardContainer,
+  buttonLogout,
 } from "./constants.js";
 import { token, isToken, loginHandler } from "./Login.js";
 import { Requests } from "./Requests.js";
@@ -26,14 +27,13 @@ import {
   statusFilter,
   priorityFilter,
   searchBtn,
-  cardsForFilter,
   handler,
 } from "./Filter.js";
 
 import ModalConfirmDelete from "./ModalConfirmDelete.js";
 
 isToken(); // Проверяем наличие токена в LocalStorae, если токен есть, прячем кнопку "Вход", открываем кнопку "Создать карточку"
-buttonLogout.addEventListener("click", logout) // Вешаем хендлер на кнопку "Выход"
+buttonLogout.addEventListener("click", logout); // Вешаем хендлер на кнопку "Выход"
 
 const modalTemplate = document.querySelector("#modal").content;
 

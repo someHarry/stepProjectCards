@@ -4,14 +4,14 @@
 import { visitCardContainer } from "./constants.js";
 
 class Visit {
-  constructor({ cardId, fio, doctor, purpose, description, priority, status }) {
+  constructor({ id, fio, doctor, purpose, description, priority, status }) {
     this.fio = fio;
     this.doctor = doctor;
     this.purpose = purpose;
     this.description = description;
     this.priority = priority;
     this.status = status;
-    this.cardId = cardId;
+    this.cardId = id;
   }
   render() {
     const visitCard = document.createElement("div");
@@ -56,7 +56,7 @@ class Visit {
     // status is made for Filter.js
     const status = document.createElement("p");
     status.className = "cards__status";
-    status.textContent = "open";
+    status.textContent = this.status;
 
     //  вывод информации которая должна показываться сразу
     visitCard.append(fio);
