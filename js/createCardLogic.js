@@ -1,7 +1,6 @@
 import {Requests} from "./Requests.js";
 import {URL, visitCardContainer} from "./constants.js";
 import {Visit} from "./Visit.js";
-import {renderPlaceholder} from "./renderPlaceholder";
 
 function visitHandler(event) {
     if (event.target.querySelector("select").value !== "Выбор врача") {
