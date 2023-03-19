@@ -1,6 +1,7 @@
 import {Requests} from "./Requests.js";
-import {URL} from "./constants.js";
+import {URL, visitCardContainer} from "./constants.js";
 import {Visit} from "./Visit.js";
+import {renderPlaceholder} from "./renderPlaceholder";
 
 function visitHandler(event) {
     if (event.target.querySelector("select").value !== "Выбор врача") {
@@ -43,7 +44,10 @@ function visitHandler(event) {
         Requests.POST(URL, newCardData)
             .then(response => {
                 let newCard = new Visit(response);
-                newCard.render();
+                if(document.querySelectorAll(".visitCard__container").length === 0){
+                    visitCardContainer.innerHTML = "";
+                }
+                visitCardContainer.append(newCard.render());
             });
     }
 }
