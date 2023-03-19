@@ -42,10 +42,10 @@
     </header>
     <main class="page-main">
         <section class="filter pt-4 pb-5 container-fluid">
-            <form class="row g-3 d-flex justify-content-center">
+            <form id="searchForm" class="row g-3 d-flex justify-content-center">
                 <div class="col-auto">
                     <label for="inputText2" class="visually-hidden"></label>
-                    <input type="text" class="form-control" id="inputText2" placeholder="Поиск по заголовку">
+                    <input type="text" class="form-control" id="inputText2" placeholder="Поиск по описанию">
                 </div>
                 <div class="col-auto">
                     <select id="status__filter" class="form-select form-select-m" aria-label=".form-select-sm example">
@@ -64,7 +64,7 @@
                     </select>
                 </div>
                 <div class="col-auto">
-                    <button type="submit" id="search__btn" class="btn btn-info text-light">Поиск</button>
+                    <button type="submit" class="btn btn-info text-light">Поиск</button>
                 </div>
             </form>
         </section>
@@ -76,6 +76,16 @@
             <!--                    <p class="images-text text-center fs-3 text-light"> No items have been added</p>-->
             <!--                </div>-->
             <!--            </section>-->
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
         </div>
     </main>
     <template id="modal">
