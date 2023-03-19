@@ -1,116 +1,140 @@
 import { hide, show } from "./Utilities.js";
 
-const input = document.querySelector("#inputText2");
+const inputFilter = document.querySelector("#inputText2");
 const statusFilter = document.querySelector("#status__filter");
 const priorityFilter = document.querySelector("#priority__filter");
-const searchBtn = document.querySelector("#search__btn");
+const searchForm = document.querySelector("#searchForm");
 
-function handler() {
+searchForm.addEventListener("submit", (el) => {
+  el.preventDefault();
   const cardsForFilter = [
     ...document.querySelectorAll(".visitCard__container"),
   ];
+
+  let resultFilter = Priority(status(input(cardsForFilter)));
+  cardsForFilter.forEach((element) => {
+    console.log(resultFilter);
+    if (resultFilter.includes(element)) {
+      show(element);
+    } else {
+      hide(element);
+    }
+  });
+});
+
+function input(cardsForFilter) {
+  let inputValue = inputFilter.value.toUpperCase();
+  console.log(inputValue);
+  return cardsForFilter.filter((item) => {
+    let descriptionSearch = item.querySelector(
+      ".visitCard__container--description"
+    );
+    let descriptionSearchContent = descriptionSearch.textContent.toUpperCase();
+    if (descriptionSearchContent.includes(inputValue)) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+}
+
+function status(cardsForFilter) {
   if (statusFilter.value === "0") {
-    cardsForFilter.forEach((item) => {
-      show(item);
-    });
+    return cardsForFilter;
   }
   if (statusFilter.value === "1") {
-    cardsForFilter.forEach((item) => {
+    return cardsForFilter.filter((item) => {
       if (item.dataset.done === "false") {
-        show(item);
+        return true;
       } else {
-        hide(item);
+        return false;
       }
     });
   }
   if (statusFilter.value === "2") {
-    cardsForFilter.forEach((item) => {
+    return cardsForFilter.filter((item) => {
       if (item.dataset.done === "true") {
-        show(item);
+        return true;
       } else {
-        hide(item);
+        return false;
       }
     });
   }
 }
 
-function Priority() {
-  const cardsForFilter = [
-    ...document.querySelectorAll(".visitCard__container"),
-  ];
+function Priority(cardsForFilter) {
   const getPriorityValue =
     priorityFilter.options[priorityFilter.selectedIndex].value;
 
   if (getPriorityValue === "0") {
-    cardsForFilter.forEach((item) => {
-      show(item);
-    });
+    return cardsForFilter;
   }
   if (getPriorityValue === "1") {
-    cardsForFilter.forEach((item) => {
+    cardsForFilter.filter((item) => {
       if (item.dataset.priority === "High") {
-        show(item);
+        return true;
       } else {
-        hide(item);
+        return false;
       }
     });
   }
   if (getPriorityValue === "2") {
-    cardsForFilter.forEach((item) => {
+    cardsForFilter.filter((item) => {
       if (item.dataset.priority === "Normal") {
-        show(item);
+        return true;
       } else {
-        hide(item);
+        return false;
       }
     });
   }
   if (getPriorityValue === "3") {
-    cardsForFilter.forEach((item) => {
+    cardsForFilter.filter((item) => {
       if (item.dataset.priority === "Low") {
-        show(item);
+        return true;
       } else {
-        hide(item);
+        return false;
       }
     });
   }
 }
 
-searchBtn.addEventListener("click", (el) => {
-  el.preventDefault();
-  console.log("test");
-  handler();
-  Priority();
-});
+// class Filter {
+//   constructor() {}
+//   static input() {
+//     return console.log(input.value);
+//   }
+//   static status() {
+//     const getStatusValue =
+//       statusFilter.options[statusFilter.selectedIndex].value;
+//     if (getStatusValue === "1") {
+//       return console.log(getStatusValue);
+//     } else if (getStatusValue === "2") {
+//       return console.log(getStatusValue);
+//     } else {
+//       return console.log(getStatusValue);
+//     }
+//   }
+//   static priority() {
+//     const getPriorityValue =
+//       priorityFilter.options[priorityFilter.selectedIndex].value;
+//     if (getPriorityValue === "1") {
+//       return console.log(getPriorityValue);
+//     } else if (getPriorityValue === "2") {
+//       return console.log(getPriorityValue);
+//     } else if (getPriorityValue === "3") {
+//       return console.log(getPriorityValue);
+//     } else {
+//       return console.log(getPriorityValue);
+//     }
+//   }
+// }
 
-class Filter {
-  constructor() {}
-  static input() {
-    return console.log(input.value);
-  }
-  static status() {
-    const getStatusValue =
-      statusFilter.options[statusFilter.selectedIndex].value;
-    if (getStatusValue === "1") {
-      return console.log(getStatusValue);
-    } else if (getStatusValue === "2") {
-      return console.log(getStatusValue);
-    } else {
-      return console.log(getStatusValue);
-    }
-  }
-  static priority() {
-    const getPriorityValue =
-      priorityFilter.options[priorityFilter.selectedIndex].value;
-    if (getPriorityValue === "1") {
-      return console.log(getPriorityValue);
-    } else if (getPriorityValue === "2") {
-      return console.log(getPriorityValue);
-    } else if (getPriorityValue === "3") {
-      return console.log(getPriorityValue);
-    } else {
-      return console.log(getPriorityValue);
-    }
-  }
-}
-
-export { input, statusFilter, priorityFilter, searchBtn, handler };
+export {
+  inputFilter,
+  statusFilter,
+  priorityFilter,
+  searchForm,
+  input,
+  status,
+  Priority,
+};

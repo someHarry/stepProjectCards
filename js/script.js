@@ -23,11 +23,13 @@ import { VisitTherapist } from "./VisitTherapist.js";
 import createFieldsCardiologist from "./createFieldsCardiologist.js";
 
 import {
-  input,
+  inputFilter,
   statusFilter,
   priorityFilter,
-  searchBtn,
-  handler,
+  searchForm,
+  input,
+  status,
+  Priority,
 } from "./Filter.js";
 
 import ModalConfirmDelete from "./ModalConfirmDelete.js";
