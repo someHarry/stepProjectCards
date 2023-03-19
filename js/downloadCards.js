@@ -1,17 +1,18 @@
 import {Requests} from "./Requests.js";
 import {URL, visitCardContainer} from "./constants.js";
 import {Visit} from "./Visit.js";
+import {renderPlaceholder} from "./renderPlaceholder.js";
 
 async function downloadCards() {
     let res = await Requests.GET(URL)
-    console.log(res);
+    visitCardContainer.innerHTML = "";
     if ( res.length > 0 ) {
         res.forEach(data => {
-            visitCardContainer.innerHTML = "";
             let card = new Visit(data);
-            console.log(card);
             visitCardContainer.append(card.render());
         })
+    } else {
+        renderPlaceholder();
     }
 }
 

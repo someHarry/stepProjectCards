@@ -2,20 +2,25 @@
 
 //  контейнер для карточки
 import { visitCardContainer } from "./constants.js";
-
-const visitCard = document.createElement("div");
-visitCard.className = "visitCard__container";
-visitCardContainer.append(visitCard);
+import { deleteHandler } from "./deleteCardLogic.js";
 
 class Visit {
-  constructor({fio, doctor, purpose, description, priority}) {
+  constructor({ id, fio, doctor, purpose, description, priority, status }) {
     this.fio = fio;
     this.doctor = doctor;
     this.purpose = purpose;
     this.description = description;
     this.priority = priority;
+    this.status = status;
+    this.cardId = id;
   }
   render() {
+    const visitCard = document.createElement("div");
+    visitCard.className = "visitCard__container";
+    visitCard.dataset.cardId = this.cardId;
+    visitCard.dataset.done = false;
+    visitCard.dataset.priority = this.priority;
+
     // создание полей
 
     const fio = document.createElement("p");
@@ -50,12 +55,18 @@ class Visit {
     deleteIcon.className = "visitCard__container--deleteIcon";
     deleteIcon.textContent = "❌";
 
+    // status is made for Filter.js
+    const status = document.createElement("p");
+    status.className = "cards__status";
+    status.textContent = this.status;
+
     //  вывод информации которая должна показываться сразу
     visitCard.append(fio);
     visitCard.append(doctor);
     visitCard.append(showMoreBtn);
     visitCard.append(editBtn);
     visitCard.append(deleteIcon);
+    visitCard.append(status);
 
     // создаю с классом hidden
     visitCard.append(purpose);
@@ -77,7 +88,8 @@ class Visit {
     deleteIcon.addEventListener("click", (event) => {
       if (event.target.closest(".visitCard__container--deleteIcon")) {
         // будет вызываться отдельная модалка для подтверждения удаления карточки
-        event.target.closest(".visitCard__container").style.display = "none";
+        deleteHandler(event); // функция-обработчик кнопки удаления
+        // event.target.closest(".visitCard__container").style.display = "none";
       }
     });
 
@@ -85,7 +97,7 @@ class Visit {
   }
 }
 
-export { visitCard, Visit };
+export { Visit };
 
 // const test = new Visit(           was crated for tests, might still need it
 //   "Anastasiia M.",
