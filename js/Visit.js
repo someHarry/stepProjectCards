@@ -2,6 +2,7 @@
 
 //  контейнер для карточки
 import { visitCardContainer } from "./constants.js";
+import { deleteHandler } from "./deleteCardLogic.js";
 
 class Visit {
   constructor({ id, fio, doctor, purpose, description, priority, status }) {
@@ -87,7 +88,8 @@ class Visit {
     deleteIcon.addEventListener("click", (event) => {
       if (event.target.closest(".visitCard__container--deleteIcon")) {
         // будет вызываться отдельная модалка для подтверждения удаления карточки
-        event.target.closest(".visitCard__container").style.display = "none";
+        deleteHandler(event); // функция-обработчик кнопки удаления
+        // event.target.closest(".visitCard__container").style.display = "none";
       }
     });
 
