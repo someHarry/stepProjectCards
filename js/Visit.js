@@ -43,6 +43,10 @@ class Visit {
     priority.className = "visitCard__container--priority hidden";
     priority.textContent = this.priority;
 
+    // status is made for Filter.js
+    const status = document.createElement("p");
+    status.className = "cards__status hidden";
+    status.textContent = this.status;
     // создание кнопок
     const showMoreBtn = document.createElement("button");
     showMoreBtn.className = "visitCard__container--showMoreBtn";
@@ -55,28 +59,25 @@ class Visit {
     deleteIcon.className = "visitCard__container--deleteIcon";
     deleteIcon.textContent = "❌";
 
-    // status is made for Filter.js
-    const status = document.createElement("p");
-    status.className = "cards__status";
-    status.textContent = this.status;
-
     //  вывод информации которая должна показываться сразу
     visitCard.append(fio);
     visitCard.append(doctor);
     visitCard.append(showMoreBtn);
     visitCard.append(editBtn);
     visitCard.append(deleteIcon);
-    visitCard.append(status);
 
     // создаю с классом hidden
     visitCard.append(purpose);
     visitCard.append(description);
     visitCard.append(priority);
+    visitCard.append(status);
+
     // клик по кнопке showMoreBtn
     showMoreBtn.addEventListener("click", () => {
       purpose.classList.toggle("hidden");
       description.classList.toggle("hidden");
       priority.classList.toggle("hidden");
+      status.classList.toggle("hidden");
     });
 
     // клик по кнопке showMoreBtn

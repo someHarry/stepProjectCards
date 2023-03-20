@@ -13,13 +13,14 @@ searchForm.addEventListener("submit", (el) => {
 
   let resultFilter = Priority(status(input(cardsForFilter)));
   cardsForFilter.forEach((item) => {
+    console.log(Priority());
     console.log(resultFilter);
     console.log(typeof resultFilter);
 
     if (resultFilter.includes(item)) {
-      show(item);
+      return show(item);
     } else {
-      hide(item);
+      return hide(item);
     }
   });
 });
@@ -27,11 +28,14 @@ searchForm.addEventListener("submit", (el) => {
 function input(cardsForFilter) {
   let inputValue = inputFilter.value.toUpperCase();
   return cardsForFilter.filter((item) => {
-    let descriptionSearch = item.querySelector(
-      ".visitCard__container--description"
-    );
+    let descriptionSearch = item.querySelectorAll(".visitCard__container--fio");
+    console.log(descriptionSearch);
     let descriptionSearchContent = descriptionSearch.textContent.toUpperCase();
+    console.log(descriptionSearchContent);
+
     if (descriptionSearchContent.includes(inputValue)) {
+      console.log(cardsForFilter);
+
       return true;
     } else {
       return false;
@@ -46,6 +50,7 @@ function status(cardsForFilter) {
   if (statusFilter.value === "1") {
     return cardsForFilter.filter((item) => {
       if (item.dataset.done === "false") {
+        console.log(cardsForFilter);
         return true;
       } else {
         return false;
@@ -64,14 +69,15 @@ function status(cardsForFilter) {
 }
 
 function Priority(cardsForFilter) {
+  console.log(cardsForFilter);
   const getPriorityValue =
     priorityFilter.options[priorityFilter.selectedIndex].value;
-
   if (getPriorityValue === "0") {
+    console.log(cardsForFilter);
     return cardsForFilter;
   }
   if (getPriorityValue === "1") {
-    cardsForFilter.filter((item) => {
+    return cardsForFilter.filter((item) => {
       if (item.dataset.priority === "High") {
         return true;
       } else {
@@ -80,7 +86,7 @@ function Priority(cardsForFilter) {
     });
   }
   if (getPriorityValue === "2") {
-    cardsForFilter.filter((item) => {
+    return cardsForFilter.filter((item) => {
       if (item.dataset.priority === "Normal") {
         return true;
       } else {
@@ -89,7 +95,7 @@ function Priority(cardsForFilter) {
     });
   }
   if (getPriorityValue === "3") {
-    cardsForFilter.filter((item) => {
+    return cardsForFilter.filter((item) => {
       if (item.dataset.priority === "Low") {
         return true;
       } else {
@@ -98,37 +104,6 @@ function Priority(cardsForFilter) {
     });
   }
 }
-
-// class Filter {
-//   constructor() {}
-//   static input() {
-//     return console.log(input.value);
-//   }
-//   static status() {
-//     const getStatusValue =
-//       statusFilter.options[statusFilter.selectedIndex].value;
-//     if (getStatusValue === "1") {
-//       return console.log(getStatusValue);
-//     } else if (getStatusValue === "2") {
-//       return console.log(getStatusValue);
-//     } else {
-//       return console.log(getStatusValue);
-//     }
-//   }
-//   static priority() {
-//     const getPriorityValue =
-//       priorityFilter.options[priorityFilter.selectedIndex].value;
-//     if (getPriorityValue === "1") {
-//       return console.log(getPriorityValue);
-//     } else if (getPriorityValue === "2") {
-//       return console.log(getPriorityValue);
-//     } else if (getPriorityValue === "3") {
-//       return console.log(getPriorityValue);
-//     } else {
-//       return console.log(getPriorityValue);
-//     }
-//   }
-// }
 
 export {
   inputFilter,
