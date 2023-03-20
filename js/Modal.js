@@ -10,6 +10,7 @@ export default class Modal {
     render() {
         const modalTitle = this.modal.querySelector(".modal-title");
         modalTitle.textContent = this.title;
+        modalTitle.className = "text-info";
         const modalBody = this.modal.querySelector(".modal-body");
         modalBody.append(this.content);
         return this.modal;
