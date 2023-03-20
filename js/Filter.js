@@ -12,14 +12,14 @@ searchForm.addEventListener("submit", (el) => {
   ];
 
   let resultFilter = Priority(status(input(cardsForFilter)));
-  cardsForFilter.forEach((element) => {
+  cardsForFilter.forEach((item) => {
     console.log(resultFilter);
     console.log(typeof resultFilter);
 
-    if (resultFilter.includes(element)) {
-      show(element);
+    if (resultFilter.includes(item)) {
+      show(item);
     } else {
-      hide(element);
+      hide(item);
     }
   });
 });
