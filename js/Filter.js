@@ -13,10 +13,6 @@ searchForm.addEventListener("submit", (el) => {
 
   let resultFilter = Priority(status(input(cardsForFilter)));
   cardsForFilter.forEach((item) => {
-    console.log(Priority());
-    console.log(resultFilter);
-    console.log(typeof resultFilter);
-
     if (resultFilter.includes(item)) {
       return show(item);
     } else {
@@ -28,14 +24,9 @@ searchForm.addEventListener("submit", (el) => {
 function input(cardsForFilter) {
   let inputValue = inputFilter.value.toUpperCase();
   return cardsForFilter.filter((item) => {
-    let descriptionSearch = item.querySelectorAll(".visitCard__container--fio");
-    console.log(descriptionSearch);
-    let descriptionSearchContent = descriptionSearch.textContent.toUpperCase();
-    console.log(descriptionSearchContent);
-
-    if (descriptionSearchContent.includes(inputValue)) {
-      console.log(cardsForFilter);
-
+    let titleSearch = item.querySelector(".visitCard__container--fio");
+    let titleSearchContent = titleSearch.innerText.toUpperCase();
+    if (titleSearchContent.includes(inputValue)) {
       return true;
     } else {
       return false;
@@ -50,6 +41,16 @@ function status(cardsForFilter) {
   if (statusFilter.value === "1") {
     return cardsForFilter.filter((item) => {
       if (item.dataset.done === "false") {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+
+  if (statusFilter.value === "2") {
+    return cardsForFilter.filter((item) => {
+      if (item.dataset.done === "true") {
         console.log(cardsForFilter);
         return true;
       } else {
@@ -57,26 +58,14 @@ function status(cardsForFilter) {
       }
     });
   }
-  if (statusFilter.value === "2") {
-    return cardsForFilter.filter((item) => {
-      if (item.dataset.done === "true") {
-        return true;
-      } else {
-        return false;
-      }
-    });
-  }
+  console.log(cardsForFilter);
 }
 
 function Priority(cardsForFilter) {
-  console.log(cardsForFilter);
-  const getPriorityValue =
-    priorityFilter.options[priorityFilter.selectedIndex].value;
-  if (getPriorityValue === "0") {
-    console.log(cardsForFilter);
+  if (priorityFilter.value === "0") {
     return cardsForFilter;
   }
-  if (getPriorityValue === "1") {
+  if (priorityFilter.value === "1") {
     return cardsForFilter.filter((item) => {
       if (item.dataset.priority === "High") {
         return true;
@@ -85,7 +74,7 @@ function Priority(cardsForFilter) {
       }
     });
   }
-  if (getPriorityValue === "2") {
+  if (priorityFilter.value === "2") {
     return cardsForFilter.filter((item) => {
       if (item.dataset.priority === "Normal") {
         return true;
@@ -94,7 +83,7 @@ function Priority(cardsForFilter) {
       }
     });
   }
-  if (getPriorityValue === "3") {
+  if (priorityFilter.value === "3") {
     return cardsForFilter.filter((item) => {
       if (item.dataset.priority === "Low") {
         return true;
