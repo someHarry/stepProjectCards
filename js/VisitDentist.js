@@ -2,6 +2,7 @@ import { Visit } from "./Visit.js";
 
 class VisitDentist extends Visit {
   constructor({
+    id,
     fio,
     doctor,
     purpose,
@@ -10,11 +11,11 @@ class VisitDentist extends Visit {
     status,
     lastVisit,
   }) {
-    super({ fio, doctor, purpose, description, priority, status });
+    super({ id, fio, doctor, purpose, description, priority, status });
     this.lastVisit = lastVisit;
   }
   render() {
-    super.render();
+    let visitCard = super.render();
     const lastVisit = document.createElement("p");
     lastVisit.className = "visitCard__container--lastVisit";
     lastVisit.textContent = this.lastVisit;
