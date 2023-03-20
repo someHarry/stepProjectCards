@@ -12,19 +12,20 @@ searchForm.addEventListener("submit", (el) => {
   ];
 
   let resultFilter = Priority(status(input(cardsForFilter)));
-  cardsForFilter.forEach((element) => {
+  cardsForFilter.forEach((item) => {
     console.log(resultFilter);
-    if (resultFilter.includes(element)) {
-      show(element);
+    console.log(typeof resultFilter);
+
+    if (resultFilter.includes(item)) {
+      show(item);
     } else {
-      hide(element);
+      hide(item);
     }
   });
 });
 
 function input(cardsForFilter) {
   let inputValue = inputFilter.value.toUpperCase();
-  console.log(inputValue);
   return cardsForFilter.filter((item) => {
     let descriptionSearch = item.querySelector(
       ".visitCard__container--description"
