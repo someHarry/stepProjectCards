@@ -14,6 +14,8 @@ searchForm.addEventListener("submit", (el) => {
   let resultFilter = Priority(status(input(cardsForFilter)));
   cardsForFilter.forEach((element) => {
     console.log(resultFilter);
+    console.log(typeof resultFilter);
+
     if (resultFilter.includes(element)) {
       show(element);
     } else {
@@ -24,7 +26,6 @@ searchForm.addEventListener("submit", (el) => {
 
 function input(cardsForFilter) {
   let inputValue = inputFilter.value.toUpperCase();
-  console.log(inputValue);
   return cardsForFilter.filter((item) => {
     let descriptionSearch = item.querySelector(
       ".visitCard__container--description"
