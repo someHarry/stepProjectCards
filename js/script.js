@@ -8,6 +8,7 @@ import {
 import { token, isToken, loginHandler } from "./Login.js";
 import { Requests } from "./Requests.js";
 import { visitHandler } from "./createCardLogic.js";
+import { editCardHandler, editFormHandler } from "./editCradLogic.js";
 
 import { logout } from "./Logout.js";
 
@@ -41,6 +42,8 @@ const formLogin = new FormLogin("Войти", loginHandler);
 
 const formVisit = new FormVisit("Создать", visitHandler);
 
+const editVisit = new FormVisit("Редактировать", editFormHandler);
+
 //Это модалка для подтверждения
 // const modalConfirmDelete = document.querySelector('#modalConfirmDelete').content;
 // let modalConfirmDelete1 = new ModalConfirmDelete(modalConfirmDelete, 'karina');
@@ -55,11 +58,23 @@ let modalForLogin = new Modal(
   "modal-for-login"
 );
 let modalForCreate = new Modal(
-  modalTemplate,
-  "Create card",
-  formVisit.render(formVisit.renderVisit()),
-  "modal-for-create"
+    modalTemplate,
+    "Create card",
+    formVisit.render(formVisit.renderVisit()),
+    "modal-for-create"
+);
+let modalForEdit = new Modal(
+    modalTemplate,
+    "Edit card",
+    editVisit.render(editVisit.renderVisit()),
+    "modal-for-edit"
 );
 
 document.querySelector("body").append(modalForLogin.render());
 document.querySelector("body").append(modalForCreate.render());
+document.querySelector("body").append(modalForEdit.render());
+
+modalForEdit.modal.querySelector(".btn-close").addEventListener("click", ()=>{modalForEdit.modal.style.display = ""})
+
+
+export {modalForEdit}

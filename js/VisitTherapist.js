@@ -1,12 +1,12 @@
 import { Visit } from "./Visit.js";
 
 class VisitTherapist extends Visit {
-  constructor({ fio, doctor, purpose, description, priority, status, age }) {
-    super({ fio, doctor, purpose, description, priority, status });
+  constructor({ id, fio, doctor, purpose, description, priority, status, age }) {
+    super({ id, fio, doctor, purpose, description, priority, status });
     this.age = age;
   }
   render() {
-    super.render();
+    let visitCard = super.render();
     const age = document.createElement("p");
     age.className = "visitCard__container--age";
     age.textContent = this.age;
