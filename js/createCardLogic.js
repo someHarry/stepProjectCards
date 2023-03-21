@@ -1,6 +1,7 @@
 import {Requests} from "./Requests.js";
 import {URL, visitCardContainer} from "./constants.js";
 import {Visit} from "./Visit.js";
+import {createCorrectDoctor} from "./Utilities.js";
 
 function visitHandler(event) {
     if (event.target.querySelector("select").value !== "Выбор врача") {
@@ -42,7 +43,7 @@ function visitHandler(event) {
 
         Requests.POST(URL, newCardData)
             .then(response => {
-                let newCard = new Visit(response);
+                let newCard = createCorrectDoctor(response);
                 if(document.querySelectorAll(".visitCard__container").length === 0){
                     visitCardContainer.innerHTML = "";
                 }

@@ -8,8 +8,6 @@ function deleteHandler(event){
         .then(response => {
             if(response){
                 event.target.closest(".visitCard__container").remove();
-                console.log(document.querySelectorAll(".visitCard__container"));
-                console.log(document.querySelectorAll(".visitCard__container").length);
                 if(document.querySelectorAll(".visitCard__container").length === 0){
                     renderPlaceholder()
                 }

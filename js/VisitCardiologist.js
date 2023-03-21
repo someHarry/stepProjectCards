@@ -2,6 +2,7 @@ import { Visit } from "./Visit.js";
 
 class VisitCardiolog extends Visit {
   constructor({
+    id,
     fio,
     doctor,
     purpose,
@@ -13,7 +14,7 @@ class VisitCardiolog extends Visit {
     normPressure,
     prevDiseases,
   }) {
-    super({ fio, doctor, purpose, description, priority, status });
+    super({id, fio, doctor, purpose, description, priority, status });
     this.normPressure = normPressure;
     this.bodyMass = bodyMass;
     this.prevDiseases = prevDiseases;
@@ -21,7 +22,7 @@ class VisitCardiolog extends Visit {
   }
 
   render() {
-    super.render();
+    let visitCard = super.render();
     const age = document.createElement("p");
     age.className = "visitCard__container--age";
     age.textContent = this.age;

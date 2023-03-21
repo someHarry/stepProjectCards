@@ -3,6 +3,7 @@
 //  контейнер для карточки
 import { visitCardContainer } from "./constants.js";
 import { deleteHandler } from "./deleteCardLogic.js";
+import {editCardHandler} from "./editCradLogic.js";
 
 class Visit {
   constructor({ id, fio, doctor, purpose, description, priority, status }) {
@@ -16,7 +17,7 @@ class Visit {
   }
   render() {
     const visitCard = document.createElement("div");
-    visitCard.className = "visitCard__container";
+    visitCard.className = "visitCard__container card mb-3"; // временные классы, чтобы легче различать карточки при тестах
     visitCard.dataset.cardId = this.cardId;
     visitCard.dataset.done = false;
     visitCard.dataset.priority = this.priority;
@@ -82,8 +83,9 @@ class Visit {
 
     // клик по кнопке showMoreBtn
 
-    editBtn.addEventListener("click", () => {
+    editBtn.addEventListener("click", (event) => {
       // вызов формы для редактирования
+      editCardHandler(event)
     });
 
     deleteIcon.addEventListener("click", (event) => {
