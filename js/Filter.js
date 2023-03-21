@@ -14,6 +14,7 @@ searchForm.addEventListener("submit", (el) => {
   let resultFilter = Priority(status(input(cardsForFilter)));
   cardsForFilter.forEach((item) => {
     if (resultFilter.includes(item)) {
+      console.log(item);
       return show(item);
     } else {
       return hide(item);

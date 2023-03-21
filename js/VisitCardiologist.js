@@ -14,7 +14,7 @@ class VisitCardiolog extends Visit {
     normPressure,
     prevDiseases,
   }) {
-    super({id, fio, doctor, purpose, description, priority, status });
+    super({ id, fio, doctor, purpose, description, priority, status });
     this.normPressure = normPressure;
     this.bodyMass = bodyMass;
     this.prevDiseases = prevDiseases;
@@ -24,19 +24,23 @@ class VisitCardiolog extends Visit {
   render() {
     let visitCard = super.render();
     const age = document.createElement("p");
-    age.className = "visitCard__container--age";
+    age.className =
+      "visitCard__container--age hidden latent fw-normal fs-6 border-bottom";
     age.textContent = this.age;
 
     const bodyMass = document.createElement("p");
-    bodyMass.className = "visitCard__container--bodyMass";
+    bodyMass.className =
+      "visitCard__container--bodyMass hidden latent fw-normal fs-6 border-bottom";
     bodyMass.textContent = this.bodyMass;
 
     const normPressure = document.createElement("p");
-    normPressure.className = "visitCard__container--normPressure";
+    normPressure.className =
+      "visitCard__container--normPressure hidden latent fw-normal fs-6 border-bottom";
     normPressure.textContent = this.normPressure;
 
     const prevDiseases = document.createElement("p");
-    prevDiseases.className = "visitCard__container--prevDiseases";
+    prevDiseases.className =
+      "visitCard__container--prevDiseases hidden latent fw-normal fs-6 border-bottom";
     prevDiseases.textContent = this.prevDiseases;
 
     visitCard.append(age);
@@ -44,7 +48,8 @@ class VisitCardiolog extends Visit {
     visitCard.append(normPressure);
     visitCard.append(prevDiseases);
 
-    console.log(visitCard);
+    visitCard.append(super.Btns());
+
     return visitCard;
   }
 }
