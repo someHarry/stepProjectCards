@@ -3,7 +3,7 @@
 //  контейнер для карточки
 import { visitCardContainer } from "./constants.js";
 import { deleteHandler } from "./deleteCardLogic.js";
-import {editCardHandler} from "./editCradLogic.js";
+import { editCardHandler } from "./editCradLogic.js";
 
 class Visit {
   constructor({ id, fio, doctor, purpose, description, priority, status }) {
@@ -15,6 +15,7 @@ class Visit {
     this.status = status;
     this.cardId = id;
   }
+
   render() {
     const visitCard = document.createElement("div");
     visitCard.className = "visitCard__container card mb-3"; // временные классы, чтобы легче различать карточки при тестах
@@ -33,21 +34,35 @@ class Visit {
     doctor.textContent = this.doctor;
 
     const purpose = document.createElement("p");
-    purpose.className = "visitCard__container--purpose hidden";
+    purpose.className = "visitCard__container--purpose hidden latent";
     purpose.textContent = this.purpose;
 
     const description = document.createElement("p");
-    description.className = "visitCard__container--description hidden";
+    description.className = "visitCard__container--description hidden latent";
     description.textContent = this.description;
 
     const priority = document.createElement("p");
-    priority.className = "visitCard__container--priority hidden";
+    priority.className = "visitCard__container--priority hidden latent";
     priority.textContent = this.priority;
 
     // status is made for Filter.js
     const status = document.createElement("p");
-    status.className = "cards__status hidden";
+    status.className = "cards__status hidden latent";
     status.textContent = this.status;
+
+    //  вывод информации которая должна показываться сразу
+    visitCard.append(fio);
+    visitCard.append(doctor);
+
+    // создаю с классом hidden
+    visitCard.append(purpose);
+    visitCard.append(description);
+    visitCard.append(priority);
+    visitCard.append(status);
+
+    return visitCard;
+  }
+  Btns() {
     // создание кнопок
     const showMoreBtn = document.createElement("button");
     showMoreBtn.className = "visitCard__container--showMoreBtn";
@@ -60,32 +75,21 @@ class Visit {
     deleteIcon.className = "visitCard__container--deleteIcon";
     deleteIcon.textContent = "❌";
 
-    //  вывод информации которая должна показываться сразу
-    visitCard.append(fio);
-    visitCard.append(doctor);
-    visitCard.append(showMoreBtn);
-    visitCard.append(editBtn);
-    visitCard.append(deleteIcon);
-
-    // создаю с классом hidden
-    visitCard.append(purpose);
-    visitCard.append(description);
-    visitCard.append(priority);
-    visitCard.append(status);
-
-    // клик по кнопке showMoreBtn
-    showMoreBtn.addEventListener("click", () => {
-      purpose.classList.toggle("hidden");
-      description.classList.toggle("hidden");
-      priority.classList.toggle("hidden");
-      status.classList.toggle("hidden");
+    showMoreBtn.addEventListener("click", (event) => {
+      [
+        ...event.target
+          .closest(".visitCard__container")
+          .querySelectorAll(".latent"),
+      ].forEach((e) => e.classList.toggle("hidden"));
+      showMoreBtn.textContent =
+        showMoreBtn.textContent === "Show More" ? "Show Less" : "Show More";
     });
 
-    // клик по кнопке showMoreBtn
+    // клик по кнопке editBtn
 
     editBtn.addEventListener("click", (event) => {
       // вызов формы для редактирования
-      editCardHandler(event)
+      editCardHandler(event);
     });
 
     deleteIcon.addEventListener("click", (event) => {
@@ -96,18 +100,12 @@ class Visit {
       }
     });
 
-    return visitCard;
+    let fragment = document.createDocumentFragment();
+    fragment.append(showMoreBtn);
+    fragment.append(editBtn);
+    fragment.append(deleteIcon);
+    return fragment;
   }
 }
 
 export { Visit };
-
-// const test = new Visit(           was crated for tests, might still need it
-//   "Anastasiia M.",
-//   "Doctor Doc.",
-//   "i'm sick",
-//   "slept bad.",
-//   "high"
-// );
-// test.render();
-// // // export { test };
