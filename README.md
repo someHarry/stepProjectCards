@@ -1,7 +1,6 @@
 # Step Project "Cards"
 
-Потом тут будет описание проекта, а пока что есть только эта утка:
+Cтраницa, на которой Секретарша сможет создавать карточки, описывающие запланированные визиты к врачам.
 
-![](https://upload.wikimedia.org/wikipedia/commons/4/4e/Anas_Platyrhynchos_female_4.JPG)
-hello
+
 
