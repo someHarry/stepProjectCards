@@ -27,7 +27,8 @@ class Visit {
     // создание полей
 
     const fio = document.createElement("h5");
-    fio.className = "visitCard__container--fio card-header border";
+    fio.className =
+      "visitCard__container--fio card-header border overflow-auto";
     fio.textContent = this.fio;
 
     const doctor = document.createElement("h6");
@@ -37,12 +38,12 @@ class Visit {
 
     const purpose = document.createElement("p");
     purpose.className =
-      "visitCard__container--purpose hidden latent fw-normal fs-6 border-bottom";
+      "visitCard__container--purpose hidden latent fw-normal fs-6 border-bottom overflow-auto";
     purpose.textContent = this.purpose;
 
     const description = document.createElement("p");
     description.className =
-      "visitCard__container--description hidden latent fw-normal fs-6 border-bottom";
+      "visitCard__container--description hidden latent fw-normal fs-6 border-bottom overflow-auto";
     description.textContent = this.description;
 
     const priority = document.createElement("p");

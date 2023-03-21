@@ -18,7 +18,7 @@ class VisitDentist extends Visit {
     let visitCard = super.render();
     const lastVisit = document.createElement("p");
     lastVisit.className =
-      "visitCard__container--lastVisit hidden latent fw-normal fs-6 border-bottom";
+      "visitCard__container--lastVisit hidden latent fw-normal fs-6 border-bottom overflow-auto";
     lastVisit.textContent = this.lastVisit;
 
     visitCard.append(lastVisit);
