@@ -18,36 +18,42 @@ class Visit {
 
   render() {
     const visitCard = document.createElement("div");
-    visitCard.className = "visitCard__container card mb-3"; // временные классы, чтобы легче различать карточки при тестах
+    visitCard.className =
+      "visitCard__container card card-body w-25 p-3 mw-30 text-dark bg-light mb-3 d-grid gap-3 m-3"; // временные классы, чтобы легче различать карточки при тестах
     visitCard.dataset.cardId = this.cardId;
     visitCard.dataset.done = false;
     visitCard.dataset.priority = this.priority;
 
     // создание полей
 
-    const fio = document.createElement("p");
-    fio.className = "visitCard__container--fio";
+    const fio = document.createElement("h5");
+    fio.className = "visitCard__container--fio card-header border";
     fio.textContent = this.fio;
 
-    const doctor = document.createElement("p");
-    doctor.className = "visitCard__container--doctor";
+    const doctor = document.createElement("h6");
+    doctor.className =
+      "visitCard__container--doctor card-subtitle mb-2 text-muted ";
     doctor.textContent = this.doctor;
 
     const purpose = document.createElement("p");
-    purpose.className = "visitCard__container--purpose hidden latent";
+    purpose.className =
+      "visitCard__container--purpose hidden latent fw-normal fs-6 border-bottom";
     purpose.textContent = this.purpose;
 
     const description = document.createElement("p");
-    description.className = "visitCard__container--description hidden latent";
+    description.className =
+      "visitCard__container--description hidden latent fw-normal fs-6 border-bottom";
     description.textContent = this.description;
 
     const priority = document.createElement("p");
-    priority.className = "visitCard__container--priority hidden latent";
+    priority.className =
+      "visitCard__container--priority hidden latent fw-normal fs-6 border-bottom";
     priority.textContent = this.priority;
 
     // status is made for Filter.js
     const status = document.createElement("p");
-    status.className = "cards__status hidden latent";
+    status.className =
+      "cards__status hidden latent fw-normal fs-6 border-bottom";
     status.textContent = this.status;
 
     //  вывод информации которая должна показываться сразу
@@ -65,14 +71,14 @@ class Visit {
   Btns() {
     // создание кнопок
     const showMoreBtn = document.createElement("button");
-    showMoreBtn.className = "visitCard__container--showMoreBtn";
+    showMoreBtn.className = "visitCard__container--showMoreBtn btn btn-primary";
     showMoreBtn.textContent = "Show More";
     const editBtn = document.createElement("button");
-    editBtn.className = "visitCard__container--editBtn";
-    editBtn.textContent = "Edit";
+    editBtn.className = "visitCard__container--editBtn btn btn-info";
+    editBtn.textContent = "Edit ✏";
 
     const deleteIcon = document.createElement("button");
-    deleteIcon.className = "visitCard__container--deleteIcon";
+    deleteIcon.className = "visitCard__container--deleteIcon btn btn-danger";
     deleteIcon.textContent = "❌";
 
     showMoreBtn.addEventListener("click", (event) => {

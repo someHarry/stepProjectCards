@@ -17,12 +17,11 @@ class VisitDentist extends Visit {
   render() {
     let visitCard = super.render();
     const lastVisit = document.createElement("p");
-    lastVisit.className = "visitCard__container--lastVisit hidden latent";
+    lastVisit.className =
+      "visitCard__container--lastVisit hidden latent fw-normal fs-6 border-bottom";
     lastVisit.textContent = this.lastVisit;
 
     visitCard.append(lastVisit);
-
-    console.log(visitCard);
 
     visitCard.append(super.Btns());
 

@@ -17,12 +17,11 @@ class VisitTherapist extends Visit {
   render() {
     let visitCard = super.render();
     const age = document.createElement("p");
-    age.className = "visitCard__container--age hidden latent";
+    age.className =
+      "visitCard__container--age hidden latent fw-normal fs-6 border-bottom";
     age.textContent = this.age;
 
     visitCard.append(age);
-
-    console.log(visitCard);
 
     visitCard.append(super.Btns());
 
