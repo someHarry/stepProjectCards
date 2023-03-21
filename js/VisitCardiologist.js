@@ -25,22 +25,22 @@ class VisitCardiolog extends Visit {
     let visitCard = super.render();
     const age = document.createElement("p");
     age.className =
-      "visitCard__container--age hidden latent fw-normal fs-6 border-bottom";
+      "visitCard__container--age hidden latent fw-normal fs-6 border-bottom overflow-auto";
     age.textContent = this.age;
 
     const bodyMass = document.createElement("p");
     bodyMass.className =
-      "visitCard__container--bodyMass hidden latent fw-normal fs-6 border-bottom";
+      "visitCard__container--bodyMass hidden latent fw-normal fs-6 border-bottom overflow-auto";
     bodyMass.textContent = this.bodyMass;
 
     const normPressure = document.createElement("p");
     normPressure.className =
-      "visitCard__container--normPressure hidden latent fw-normal fs-6 border-bottom";
+      "visitCard__container--normPressure hidden latent fw-normal fs-6 border-bottom overflow-auto";
     normPressure.textContent = this.normPressure;
 
     const prevDiseases = document.createElement("p");
     prevDiseases.className =
-      "visitCard__container--prevDiseases hidden latent fw-normal fs-6 border-bottom";
+      "visitCard__container--prevDiseases hidden latent fw-normal fs-6 border-bottom overflow-auto";
     prevDiseases.textContent = this.prevDiseases;
 
     visitCard.append(age);
